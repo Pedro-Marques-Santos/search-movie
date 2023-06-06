@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --black-600: #151515;
+  --black-500: #1E1E1E;
+  --white: #FFFFFF;
+  --gray-600: #6C6C6C;
+  --gray-500: #888888
+} */
