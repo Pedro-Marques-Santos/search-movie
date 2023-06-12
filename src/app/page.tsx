@@ -10,13 +10,13 @@ import { auth } from "../services/firebase";
 import { AiFillGoogleCircle } from "react-icons/ai";
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 
 export default function Home() {
   const router = useRouter();
 
-  const { verifyToken, searchOrCreateUser } = useContext(
+  const { verifyToken, searchOrCreateUser, userProfile } = useContext(
     AuthenticationMyUserContext
   );
 
@@ -26,23 +26,27 @@ export default function Home() {
     signInWithPopup(auth, provider)
       .then(async (result) => {
         const response = await verifyToken(result);
-
         if (response.status === 201) {
           const userAndResponseStatus = await searchOrCreateUser(
             result.user.uid
           );
-
-          if (userAndResponseStatus.status === 200) {
-            if (userAndResponseStatus.user.recommend?.length !== 3) {
-              router.push("/recommendprofile");
-            }
-          }
         }
       })
       .catch((e) => {
         console.log(e);
       });
   }
+
+  useEffect(() => {
+    if (userProfile.id !== "" && userProfile.id) {
+      if (userProfile.recommend.length === 3) {
+        router.push("/dashboard");
+      }
+      if (userProfile.recommend.length !== 3) {
+        router.push("/recommendprofile");
+      }
+    }
+  }, [router, userProfile.id, userProfile.recommend.length]);
 
   return (
     <div className="flex h-screen justify-center items-center flex-col pl-2 pr-2 bg-my-black-700">

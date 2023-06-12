@@ -7,8 +7,7 @@ interface IUser {
   recommend: string[];
 }
 
-interface IResponseUserAndStatus {
-  user: IUser;
+interface IResponseStatus {
   status: number;
 }
 
@@ -18,8 +17,9 @@ interface AuthenticationMyUserProviderProps {
 
 type TAuthenticationMyUserContextProps = {
   verifyToken(result: UserCredential): Promise<Response>;
-  searchOrCreateUser(id: string): Promise<IResponseUserAndStatus>;
+  searchOrCreateUser(id: string): Promise<IResponseStatus>;
   userProfile: { id: string; recommend: string[] };
+  modifyUserAddGenres({ id, recommend }: IUser): Promise<IResponseStatus>;
 };
 
 export const AuthenticationMyUserContext =
@@ -49,9 +49,7 @@ export function AuthenticationMyUserProvider({
     return response;
   }
 
-  async function searchOrCreateUser(
-    id: string
-  ): Promise<IResponseUserAndStatus> {
+  async function searchOrCreateUser(id: string): Promise<IResponseStatus> {
     const data = {
       id: id,
     };
@@ -64,24 +62,55 @@ export function AuthenticationMyUserProvider({
 
     const user = (await response.json()).user as IUser;
 
-    const userAndResponseStatus = {
-      user: user,
+    const responseStatus = {
       status: response.status,
-    } as IResponseUserAndStatus;
+    } as IResponseStatus;
 
     setUserProfile({
       id: user.id,
       recommend: user.recommend,
     });
 
-    return userAndResponseStatus;
+    return responseStatus;
   }
 
-  console.log(userProfile);
+  async function modifyUserAddGenres({
+    id,
+    recommend,
+  }: IUser): Promise<IResponseStatus> {
+    const data = {
+      id: id,
+      recommend: recommend,
+    };
+
+    const response = await fetch(
+      "http://localhost:9999/modifyUserAddRecommend",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      }
+    );
+
+    const user = (await response.json()) as IUser;
+
+    const responseStatus = {
+      status: response.status,
+    } as IResponseStatus;
+
+    console.log(response);
+
+    return responseStatus;
+  }
 
   return (
     <AuthenticationMyUserContext.Provider
-      value={{ verifyToken, searchOrCreateUser, userProfile }}
+      value={{
+        verifyToken,
+        searchOrCreateUser,
+        userProfile,
+        modifyUserAddGenres,
+      }}
     >
       {children}
     </AuthenticationMyUserContext.Provider>

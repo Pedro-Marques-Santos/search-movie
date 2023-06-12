@@ -1,40 +1,23 @@
 "use client";
-
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
-
-interface IGenre {
-  genre: string;
-  isLikeGenre: boolean;
-}
+import { searchAllGenres } from "./allgenres";
 
 export default function Home() {
   const router = useRouter();
 
-  const { userProfile } = useContext(AuthenticationMyUserContext);
-
-  // console.log(userProfile);
+  const { userProfile, modifyUserAddGenres } = useContext(
+    AuthenticationMyUserContext
+  );
 
   const [genres, setGenres] = useState<[]>([]);
   const [genresLike, setGenresLike] = useState<string[]>([]);
 
   useEffect(() => {
     const executefetch = async () => {
-      let response = await fetch(
-        "https://streaming-availability.p.rapidapi.com/v2/genres",
-        {
-          method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "8025634efcmsh620c16ee28b26bdp187450jsn496d45f55138",
-            "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        }
-      );
-      let result = (await response.json()) as {};
+      let result = await searchAllGenres();
       const resultarray = Object.entries(result)[0][1] as [];
       const resultgenres = Object.values(resultarray) as [];
       setGenres(resultgenres);
@@ -54,7 +37,16 @@ export default function Home() {
     }
   }
 
-  async function userAddGenresRecommend() {}
+  async function userAddGenresRecommend() {
+    if (genresLike.length === 3 && userProfile.id) {
+      const response = await modifyUserAddGenres({
+        id: userProfile.id,
+        recommend: genresLike,
+      });
+    } else {
+      alert("you must choose 3 genres!");
+    }
+  }
 
   if (userProfile.id === "" || userProfile.id === undefined) {
     router.push("/");
@@ -93,6 +85,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center mt-8 pb-8">
           <button
+            onClick={userAddGenresRecommend}
             type="submit"
             className="w-32 h-14 rounded-md bg-red-800 hover:bg-red-900 text-white text-lg"
           >
