@@ -4,6 +4,14 @@ import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import { searchAllGenres } from "./allgenres";
+import {
+  AllGenres,
+  Button,
+  Container,
+  ContentContainer,
+  FavoriteGenres,
+  ListAllGenres,
+} from "./styles";
 
 export default function Home() {
   const router = useRouter();
@@ -57,42 +65,42 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen bg-my-black-700">
-      <div className="w-full max-w-screen-xl mx-auto pt-8 pr-4 pl-4 bg-my-black-700">
-        <h1 className="text-white text-xl">
+    <ContentContainer>
+      <Container>
+        <h1>
           choose 3 types of genres you would like to be recommended to you!
         </h1>
-        <div className="mt-8 flex gap-5 justify-center flex-wrap">
+        <ListAllGenres className="mt-8 flex gap-5 justify-center flex-wrap">
           {genres.map((gen: string, index) => {
             return genresLike.includes(gen) === true ? (
-              <div
+              <FavoriteGenres
                 onClick={() => addNewGenresLike(gen)}
                 key={index}
                 className="w-36 h-20 bg-my-black-600 text-white flex justify-center items-center cursor-pointer border border-sky-700"
               >
                 {gen}
-              </div>
+              </FavoriteGenres>
             ) : (
-              <div
+              <AllGenres
                 onClick={() => addNewGenresLike(gen)}
                 key={index}
                 className="w-36 h-20 bg-my-black-600 text-white flex justify-center items-center cursor-pointer hover:bg-sky-700"
               >
                 {gen}
-              </div>
+              </AllGenres>
             );
           })}
-        </div>
-        <div className="flex justify-center mt-8 pb-8">
+        </ListAllGenres>
+        <Button className="flex justify-center mt-8 pb-8">
           <button
             onClick={userAddGenresRecommend}
             type="submit"
             className="w-32 h-14 rounded-md bg-red-800 hover:bg-red-900 text-white text-lg"
           >
-            Select
+            Select genres
           </button>
-        </div>
-      </div>
-    </div>
+        </Button>
+      </Container>
+    </ContentContainer>
   );
 }

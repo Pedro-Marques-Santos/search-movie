@@ -1,7 +1,9 @@
 "use client";
-import { Header } from "@/components/Header";
+
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 import { useContext, useEffect } from "react";
+import { Container, ContentContainer } from "./styles";
+import { Header } from "@/components/Header";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
@@ -13,9 +15,10 @@ export default function Home() {
   }, [userProfile, userProfile.id, userProfile.recommend.length]);
 
   return (
-    <div className="h-screen bg-my-black-700">
-      <Header typeHeader={"standard"} />
-      <div>teste</div>
-    </div>
+    <ContentContainer>
+      <Container>
+        <Header />
+      </Container>
+    </ContentContainer>
   );
 }

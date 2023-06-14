@@ -1,6 +1,8 @@
-import { roboto } from "@/fonts/my-fonts";
-import "./globals.css";
+/* eslint-disable @next/next/no-page-custom-font */
+import { inter, roboto } from "@/fonts/my-fonts";
 import { AuthenticationMyUserProvider } from "@/context/authenticationUser";
+import StyledJsxRegistry from "./registrystyledcomponents";
+import { GlobalStyle } from "@/styles/global";
 
 export default function RootLayout({
   children,
@@ -8,9 +10,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en">
       <AuthenticationMyUserProvider>
-        <body>{children}</body>
+        <StyledJsxRegistry>
+          <body>
+            {children}
+            <GlobalStyle />
+          </body>
+        </StyledJsxRegistry>
       </AuthenticationMyUserProvider>
     </html>
   );

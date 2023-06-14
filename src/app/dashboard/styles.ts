@@ -1,0 +1,12 @@
+import { styled } from "styled-components";
+
+export const ContentContainer = styled.div`
+  height: 100vh;
+`;
+
+export const Container = styled.div`
+  max-width: 1296px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 0 auto;
+`;

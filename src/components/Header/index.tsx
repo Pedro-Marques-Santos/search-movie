@@ -1,29 +1,51 @@
-interface IHeaderProps {
-  typeHeader: string;
-}
-
 import Image from "next/image";
 
-import logo from "../../assets/login/LOGO.svg";
-import news from "../../assets/icons/news.png";
+import logo from "../../assets/logo/logoteste.png";
 
-import { RxTextAlignJustify } from "react-icons/rx";
-import { AiOutlineMessage } from "react-icons/ai";
+import logo2 from "../../assets/login/LOGO.svg";
 
-export function Header({ typeHeader }: IHeaderProps) {
+import { FaSearch } from "react-icons/fa";
+import { BsFillBellFill } from "react-icons/bs";
+import { MdOutlineFormatAlignRight } from "react-icons/md";
+
+import {
+  Container,
+  Icon,
+  IconProgessBar,
+  Icons,
+  Logo,
+  MenuXl,
+  NavContainer,
+  User,
+} from "./styles";
+
+export function Header() {
   return (
-    <div>
-      {typeHeader === "standard" && (
-        <div className="pt-8 max-w-screen-lg mx-auto pr-2 pl-2 flex justify-between">
-          <Image src={logo} alt={"logo"} />
-          <div className="flex items-center">
-            <AiOutlineMessage className="text-[25px] text-white mr-4" />
-            <div className="w-[25px] h-[25px] bg-white mr-4 rounded-full"></div>
-            <RxTextAlignJustify className="text-[28px] text-white" />
-          </div>
-        </div>
-      )}
-      {}
-    </div>
+    <Container>
+      <Logo>
+        <Image src={logo2} width={155} height={45} alt="logo" />
+      </Logo>
+      <NavContainer>
+        <MenuXl>
+          <a href="#">START</a>
+          <a href="#">COMMUNITY</a>
+          <a href="#">TELEGRAM</a>
+        </MenuXl>
+        <Icons>
+          <IconProgessBar>
+            <MdOutlineFormatAlignRight size={25} />
+          </IconProgessBar>
+          <Icon>
+            <User />
+          </Icon>
+          <Icon>
+            <BsFillBellFill size={20} />
+          </Icon>
+          <Icon>
+            <FaSearch size={20} />
+          </Icon>
+        </Icons>
+      </NavContainer>
+    </Container>
   );
 }
