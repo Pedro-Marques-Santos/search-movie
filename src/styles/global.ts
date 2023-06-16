@@ -40,4 +40,12 @@ export const GlobalStyle = createGlobalStyle`
 	  border: none;
 	  outline: inherit;
   }
+
+  .iconHeaderDashboardHeader {
+    font-size: 20px;
+
+    @media (max-width: 650px) {
+      font-size: 25px;
+    }
+  }
 `;

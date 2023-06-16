@@ -45,6 +45,7 @@ export const Icons = styled.div`
 
 export const Icon = styled.div`
   cursor: pointer;
+
   &:nth-child(3) {
     @media (max-width: 375px) {
       display: none;
@@ -69,4 +70,13 @@ export const User = styled.div`
   height: 22px;
   background: gray;
   border-radius: 100%;
+`;
+
+export const ImgIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
 `;

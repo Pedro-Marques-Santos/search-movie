@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-page-custom-font */
-import { inter, roboto } from "@/fonts/my-fonts";
+"use client";
+
 import { AuthenticationMyUserProvider } from "@/context/authenticationUser";
-import StyledJsxRegistry from "./registrystyledcomponents";
 import { GlobalStyle } from "@/styles/global";
+import { StyleSheetManager } from "styled-components";
 
 export default function RootLayout({
   children,
@@ -11,14 +11,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <AuthenticationMyUserProvider>
-        <StyledJsxRegistry>
-          <body>
+      <StyleSheetManager>
+        <body>
+          <AuthenticationMyUserProvider>
             {children}
             <GlobalStyle />
-          </body>
-        </StyledJsxRegistry>
-      </AuthenticationMyUserProvider>
+          </AuthenticationMyUserProvider>
+        </body>
+      </StyleSheetManager>
     </html>
   );
 }

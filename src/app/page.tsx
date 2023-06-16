@@ -10,9 +10,10 @@ import { auth } from "../services/firebase";
 import { AiFillGoogleCircle } from "react-icons/ai";
 
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 import { Container, ContentContainer, Icon, Img } from "./login/styles";
+import { GifCenter } from "@/components/Gif/GifCenter";
 
 export default function Home() {
   const router = useRouter();
@@ -21,11 +22,14 @@ export default function Home() {
     AuthenticationMyUserContext
   );
 
+  const [stateLoadingLogin, setStateLoadingLogin] = useState(false);
+
   function handleGoogleSignIn() {
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
       .then(async (result) => {
+        setStateLoadingLogin(true);
         const response = await verifyToken(result);
         if (response.status === 201) {
           const userAndResponseStatus = await searchOrCreateUser(
@@ -35,6 +39,7 @@ export default function Home() {
       })
       .catch((e) => {
         console.log(e);
+        setStateLoadingLogin(false);
       });
   }
 
@@ -63,13 +68,18 @@ export default function Home() {
           />
         </Img>
         <Image src={login} width={190} height={96} alt={"login"} priority />
-        <button onClick={handleGoogleSignIn}>
+        <button onClick={handleGoogleSignIn} disabled={stateLoadingLogin}>
           <Icon>
             <AiFillGoogleCircle />
           </Icon>
           GOOGLE
         </button>
       </Container>
+      {stateLoadingLogin ? (
+        <GifCenter top="70%" width={"38px"} height={"38px"} />
+      ) : (
+        <></>
+      )}
     </ContentContainer>
   );
 }

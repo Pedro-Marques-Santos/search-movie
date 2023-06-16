@@ -12,6 +12,7 @@ import {
   FavoriteGenres,
   ListAllGenres,
 } from "./styles";
+import { GifCenter } from "@/components/Gif/GifCenter";
 
 export default function Home() {
   const router = useRouter();
@@ -19,6 +20,8 @@ export default function Home() {
   const { userProfile, modifyUserAddGenres } = useContext(
     AuthenticationMyUserContext
   );
+
+  const [stateLoadingLogin, setStateLoadingLogin] = useState(false);
 
   const [genres, setGenres] = useState<[]>([]);
   const [genresLike, setGenresLike] = useState<string[]>([]);
@@ -34,6 +37,12 @@ export default function Home() {
     executefetch();
   }, []);
 
+  useEffect(() => {
+    if (userProfile.recommend.length === 3) {
+      router.push("/dashboard");
+    }
+  }, [router, userProfile.recommend.length]);
+
   function addNewGenresLike(genre: string) {
     if (genresLike.includes(genre) === false) {
       if (genresLike.length < 3) {
@@ -47,6 +56,7 @@ export default function Home() {
 
   async function userAddGenresRecommend() {
     if (genresLike.length === 3 && userProfile.id) {
+      setStateLoadingLogin(true);
       const response = await modifyUserAddGenres({
         id: userProfile.id,
         recommend: genresLike,
@@ -58,10 +68,6 @@ export default function Home() {
 
   if (userProfile.id === "" || userProfile.id === undefined) {
     router.push("/");
-  }
-
-  if (userProfile.recommend.length === 3) {
-    router.push("/dashboard");
   }
 
   return (
@@ -93,6 +99,7 @@ export default function Home() {
         </ListAllGenres>
         <Button className="flex justify-center mt-8 pb-8">
           <button
+            disabled={stateLoadingLogin}
             onClick={userAddGenresRecommend}
             type="submit"
             className="w-32 h-14 rounded-md bg-red-800 hover:bg-red-900 text-white text-lg"
@@ -101,6 +108,11 @@ export default function Home() {
           </button>
         </Button>
       </Container>
+      {stateLoadingLogin ? (
+        <GifCenter top="76%" left="48.5%" width={"38px"} height={"38px"} />
+      ) : (
+        <></>
+      )}
     </ContentContainer>
   );
 }

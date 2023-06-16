@@ -20,6 +20,7 @@ type TAuthenticationMyUserContextProps = {
   searchOrCreateUser(id: string): Promise<IResponseStatus>;
   userProfile: { id: string; recommend: string[] };
   modifyUserAddGenres({ id, recommend }: IUser): Promise<IResponseStatus>;
+  userGoogle: UserCredential | null;
 };
 
 export const AuthenticationMyUserContext =
@@ -35,6 +36,8 @@ export function AuthenticationMyUserProvider({
     recommend: [] as string[],
   });
 
+  const [userGoogle, setUserGoogle] = useState<UserCredential | null>(null);
+
   async function verifyToken(result: UserCredential): Promise<Response> {
     const response = await fetch(
       "http://localhost:9999/verifyGoogleAuthentication",
@@ -46,6 +49,9 @@ export function AuthenticationMyUserProvider({
         }),
       }
     );
+
+    setUserGoogle(result);
+
     return response;
   }
 
@@ -98,7 +104,10 @@ export function AuthenticationMyUserProvider({
       status: response.status,
     } as IResponseStatus;
 
-    console.log(response);
+    setUserProfile({
+      id: user.id,
+      recommend: user.recommend,
+    });
 
     return responseStatus;
   }
@@ -110,6 +119,7 @@ export function AuthenticationMyUserProvider({
         searchOrCreateUser,
         userProfile,
         modifyUserAddGenres,
+        userGoogle,
       }}
     >
       {children}
