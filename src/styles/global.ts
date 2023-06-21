@@ -8,10 +8,12 @@ export const GlobalStyle = createGlobalStyle`
     --black-500: #141414;
     --black-600: #151515;
     --black-400: #343434;
+    --black-900: #030303;
     --red-500: rgb(239 68 68);
     --red-700: rgb(185 28 28);
     --gray-500: #595A5A;
-    --gray-100: #eaecf0;
+    --gray-600: #6A6A6A;
+    --gray-100: #C7C7C7;
     --green-100: rgb(22 101 52);
     --black: #000000;
     --white: #FFFFFF;
@@ -47,5 +49,24 @@ export const GlobalStyle = createGlobalStyle`
     @media (max-width: 650px) {
       font-size: 25px;
     }
+  }
+
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    /* border: 1px solid red; */
+    font-size: 18px;
+    max-height: 268.41px;
+    min-height: 80px;
+  }
+
+  .swiper-slide {
+    width: calc(100% - 100px);
+    max-width: 804px;
+    border-radius: 20px;
   }
 `;
