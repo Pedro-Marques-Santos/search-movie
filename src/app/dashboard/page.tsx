@@ -21,7 +21,6 @@ export default function Home() {
       <Container>
         <Header />
         <Bestmovies />
-        <Test />
       </Container>
     </ContentContainer>
   );

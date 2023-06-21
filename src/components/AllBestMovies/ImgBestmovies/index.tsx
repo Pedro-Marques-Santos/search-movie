@@ -16,7 +16,6 @@ export function ImgBestmovies() {
           maxHeight: "268.41px",
           borderTopRightRadius: "10px",
           borderBottomRightRadius: "10px",
-          objectFit: "contain",
         }}
       />
     </Container>
