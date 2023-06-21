@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AboutMovie,
   Container,
@@ -7,9 +9,13 @@ import {
   Youtube,
 } from "./styles";
 
-export function AboutBestmovies() {
+interface IAboutBestmovies {
+  typeCarrousel: string;
+}
+
+export function AboutBestmovies({ typeCarrousel }: IAboutBestmovies) {
   return (
-    <ContentContainer>
+    <ContentContainer typecaroussel={typeCarrousel}>
       <Container>
         <Title>The Batman </Title>
         <AboutMovie>

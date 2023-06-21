@@ -1,18 +1,33 @@
+"use client";
+
 import { styled } from "styled-components";
 
-export const ContentContainer = styled.div`
+interface IContentContainer {
+  typecaroussel: string;
+}
+
+export const ContentContainer = styled.div<IContentContainer>`
   width: 50%;
   display: flex;
   height: auto;
   max-height: 268.41px;
   min-height: 80px;
+
   background-image: linear-gradient(
-    to right,
+    ${(props) => (props.typecaroussel === "standard" ? "to right" : "to left")},
     var(--black) 1%,
     var(--black-500)
   );
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+
+  border-top-left-radius: ${(props) =>
+    props.typecaroussel === "standard" && "10px"};
+  border-bottom-left-radius: ${(props) =>
+    props.typecaroussel === "standard" && "10px"};
+
+  border-top-right-radius: ${(props) =>
+    props.typecaroussel === "firstimgslide" && "10px"};
+  border-bottom-right-radius: ${(props) =>
+    props.typecaroussel === "firstimgslide" && "10px"};
 `;
 
 export const Container = styled.div`

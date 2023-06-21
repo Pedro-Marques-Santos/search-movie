@@ -22,31 +22,31 @@ export function Bestmovies() {
         autoHeight={true}
       >
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"standard"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
         <SwiperSlide>
-          <BestmoviesSlides />
+          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
       </Swiper>
     </Container>
