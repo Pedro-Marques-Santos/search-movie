@@ -51,22 +51,24 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    /* border: 1px solid red; */
+  .carousel-bestmovies {
     font-size: 18px;
     max-height: 268.41px;
     min-height: 80px;
-  }
 
-  .swiper-slide {
     width: calc(100% - 100px);
     max-width: 804px;
+    border-radius: 20px;
+  }
+
+  .carousel-documentaries {
+    font-size: 18px;
+    height: auto;
+    max-height: 140px;
+
+    width: calc(100% - 250px);
+    min-width: 100px;
+    max-width: 200px;
     border-radius: 20px;
   }
 `;

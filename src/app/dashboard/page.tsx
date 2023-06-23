@@ -6,6 +6,8 @@ import { Container, ContentContainer } from "./styles";
 import { Header } from "@/components/Header";
 import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
 import { Test } from "@/components/Test";
+import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
+import { WarAndCrime } from "@/components/AllWarAndCrime/WarAndCrime/inddex";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
@@ -21,6 +23,8 @@ export default function Home() {
       <Container>
         <Header />
         <Bestmovies />
+        <Documentaries />
+        <WarAndCrime />
       </Container>
     </ContentContainer>
   );

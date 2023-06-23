@@ -15,37 +15,29 @@ export function Bestmovies() {
   return (
     <Container>
       <Swiper
+        style={{ width: "100%", height: "100%" }}
         slidesPerView={"auto"}
         spaceBetween={25}
         modules={[Pagination]}
         className="mySwiper"
         autoHeight={true}
       >
-        <SwiperSlide>
+        <SwiperSlide className="carousel-bestmovies">
           <BestmoviesSlides typeCarrousel={"standard"} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="carousel-bestmovies">
           <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="carousel-bestmovies">
           <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="carousel-bestmovies">
           <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="carousel-bestmovies">
           <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
-        <SwiperSlide>
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="carousel-bestmovies">
           <BestmoviesSlides typeCarrousel={"firstimgslide"} />
         </SwiperSlide>
       </Swiper>
