@@ -71,4 +71,14 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 200px;
     border-radius: 20px;
   }
+
+  .carousel-WarAndCrimes {
+    font-size: 18px;
+    height: auto;
+    max-height: 300px;
+
+    width: calc(100% - 250px);
+    min-width: 175px;
+    max-width: 250px;
+  }
 `;

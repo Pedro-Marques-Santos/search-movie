@@ -8,6 +8,7 @@ import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
 import { Test } from "@/components/Test";
 import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
 import { WarAndCrime } from "@/components/AllWarAndCrime/WarAndCrime/inddex";
+import { ComdyAndFamily } from "@/components/AllComedyAndFamily/ComedyAndFamily";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
@@ -25,6 +26,7 @@ export default function Home() {
         <Bestmovies />
         <Documentaries />
         <WarAndCrime />
+        <ComdyAndFamily />
       </Container>
     </ContentContainer>
   );

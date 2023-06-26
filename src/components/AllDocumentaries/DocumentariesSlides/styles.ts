@@ -30,12 +30,12 @@ export const EndSlide = styled.div`
   align-items: end;
   color: gray;
 
-  font-size: 16.5px;
+  font-size: 13.5px;
   font-weight: 300;
   line-height: 9px;
   letter-spacing: 0em;
   @media (max-width: 600px) {
-    font-size: 13.5px;
+    font-size: 13px;
     display: flex;
     align-items: center;
   }

@@ -8,12 +8,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
-import { WarAndCrimesSlides } from "../WarAndCrimesSlides";
+import { ComedyAndFamilySlides } from "../ComedyAndFamilySlides";
 
-export function WarAndCrime() {
+export function ComdyAndFamily() {
   return (
     <Container>
-      <h1>War and Crime series and movies</h1>
+      <h1>Comedy series and movies</h1>
       <Swiper
         style={{ width: "100%", height: "100%" }}
         slidesPerView={"auto"}
@@ -23,34 +23,34 @@ export function WarAndCrime() {
         autoHeight={true}
       >
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-WarAndCrimes">
-          <WarAndCrimesSlides />
+          <ComedyAndFamilySlides />
         </SwiperSlide>
       </Swiper>
     </Container>
