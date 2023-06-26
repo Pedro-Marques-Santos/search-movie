@@ -11,4 +11,7 @@ export const Container = styled.div`
     line-height: 11px;
     margin-bottom: 20px;
   }
+  @media (max-width: 550px) {
+    margin-top: 40px;
+  }
 `;

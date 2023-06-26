@@ -2,7 +2,11 @@ import { Container } from "./styles";
 
 import Image from "next/image";
 
-export function WarAndCrimesSlides() {
+interface ICommomCarousselSlides {
+  title: string;
+}
+
+export function CommomCarousselSlides({ title }: ICommomCarousselSlides) {
   return (
     <Container>
       <Image
@@ -11,13 +15,12 @@ export function WarAndCrimesSlides() {
         width={250}
         height={140.83}
         style={{
-          margin: "5px",
           width: "100%",
           minWidth: "58px",
           height: "auto",
         }}
       />
-      <h5>10 Rillington Place</h5>
+      <h5>{title}</h5>
     </Container>
   );
 }

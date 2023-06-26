@@ -72,13 +72,19 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 20px;
   }
 
-  .carousel-WarAndCrimes {
+  .carousel-commom-caroussel {
     font-size: 18px;
     height: auto;
     max-height: 300px;
 
     width: calc(100% - 250px);
-    min-width: 175px;
+    min-width: 204px;
     max-width: 250px;
+  }
+
+  .carousel-Bestmovies {
+    @media (max-width: 550px) {
+      border-radius: 0px !important;
+    }
   }
 `;

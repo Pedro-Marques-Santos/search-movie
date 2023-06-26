@@ -7,8 +7,7 @@ import { Header } from "@/components/Header";
 import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
 import { Test } from "@/components/Test";
 import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
-import { WarAndCrime } from "@/components/AllWarAndCrime/WarAndCrime/inddex";
-import { ComdyAndFamily } from "@/components/AllComedyAndFamily/ComedyAndFamily";
+import { CommomCaroussel } from "@/components/AllCommomCaroussel/CommomCaroussel";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
@@ -25,8 +24,14 @@ export default function Home() {
         <Header />
         <Bestmovies />
         <Documentaries />
-        <WarAndCrime />
-        <ComdyAndFamily />
+        <CommomCaroussel
+          title="10 Rilington Place"
+          typyMovieAndSeries="War and Crime series and movies"
+        />
+        <CommomCaroussel
+          title="10 Rilington Place"
+          typyMovieAndSeries="Comedy series and movies"
+        />
       </Container>
     </ContentContainer>
   );
