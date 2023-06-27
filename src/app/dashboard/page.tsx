@@ -8,6 +8,7 @@ import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
 import { Test } from "@/components/Test";
 import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
 import { CommomCaroussel } from "@/components/AllCommomCaroussel/CommomCaroussel";
+import { DxxRecommend } from "@/components/AllDxxRecommend/DxxRecommend";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
@@ -32,6 +33,7 @@ export default function Home() {
           title="10 Rilington Place"
           typyMovieAndSeries="Comedy series and movies"
         />
+        <DxxRecommend />
       </Container>
     </ContentContainer>
   );

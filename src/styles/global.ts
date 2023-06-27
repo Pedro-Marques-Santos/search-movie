@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     --black-500: #141414;
     --black-600: #151515;
     --black-400: #343434;
+    --black-800: #0A0A0A;
     --black-900: #030303;
     --red-500: rgb(239 68 68);
     --red-700: rgb(185 28 28);
