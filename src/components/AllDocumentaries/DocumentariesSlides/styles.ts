@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -16,11 +18,12 @@ export const Container = styled.div`
 export const Title = styled.div`
   font-size: 15px;
   color: var(--gray-100);
+  text-shadow: black 0.01em 0.01em 0.1em;
   font-weight: 600;
   line-height: 13px;
   letter-spacing: 0em;
   @media (max-width: 600px) {
-    font-size: 14px;
+    font-size: 12.15px;
   }
 `;
 
@@ -35,7 +38,7 @@ export const EndSlide = styled.div`
   line-height: 9px;
   letter-spacing: 0em;
   @media (max-width: 600px) {
-    font-size: 13px;
+    font-size: 12.15px;
     display: flex;
     align-items: center;
   }

@@ -1,3 +1,5 @@
+"use client";
+
 import { Inter, Roboto } from "next/font/google";
 
 export const inter = Inter({

@@ -9,6 +9,7 @@ import { Test } from "@/components/Test";
 import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
 import { CommomCaroussel } from "@/components/AllCommomCaroussel/CommomCaroussel";
 import { DxxRecommend } from "@/components/AllDxxRecommend/DxxRecommend";
+import { Footer } from "@/components/AllFooter/Footer";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
@@ -34,6 +35,11 @@ export default function Home() {
           typyMovieAndSeries="Comedy series and movies"
         />
         <DxxRecommend />
+        <CommomCaroussel
+          title="10 Rilington Place"
+          typyMovieAndSeries="Recommended for you"
+        />
+        <Footer />
       </Container>
     </ContentContainer>
   );

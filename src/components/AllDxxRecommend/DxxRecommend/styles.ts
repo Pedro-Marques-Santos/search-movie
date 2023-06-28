@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -6,7 +8,7 @@ export const Container = styled.div`
     color: var(--white-200);
     font-size: 16.5px;
     font-weight: 600;
-    line-height: 11px;
+    line-height: 15px;
     margin-bottom: 20px;
   }
   @media (max-width: 550px) {

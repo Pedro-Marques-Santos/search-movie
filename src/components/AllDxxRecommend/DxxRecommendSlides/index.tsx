@@ -1,3 +1,5 @@
+"use client";
+
 import { ImgDxxRecommend } from "../ImgDxxRecommend";
 import { Container } from "./styles";
 

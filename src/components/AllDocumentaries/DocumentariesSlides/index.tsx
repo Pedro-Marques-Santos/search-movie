@@ -1,3 +1,5 @@
+"use client";
+
 import { ImgDocumentaries } from "../ImgDocumentaries";
 import { Container, Title, EndSlide } from "./styles";
 

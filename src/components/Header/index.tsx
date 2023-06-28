@@ -43,7 +43,7 @@ export function Header() {
         </MenuXl>
         <Icons>
           <IconProgessBar>
-            <MdOutlineFormatAlignRight size={25} />
+            <MdOutlineFormatAlignRight className="iconHeaderDashboardHeader" />
           </IconProgessBar>
           <Icon>
             {userGoogle ? (

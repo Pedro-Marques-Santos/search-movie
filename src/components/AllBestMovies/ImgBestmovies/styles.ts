@@ -1,3 +1,5 @@
+"use client";
+
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -20,6 +22,8 @@ export const Container = styled.div`
     text-shadow: black 0.1em 0.1em 0.2em;
     @media (max-width: 550px) {
       display: block;
+
+      font-size: 12.9px;
     }
   }
 `;
