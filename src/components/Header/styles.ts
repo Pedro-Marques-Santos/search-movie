@@ -2,9 +2,26 @@
 
 import { styled } from "styled-components";
 
+export const ContentContainer = styled.div`
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 10;
+  background: var(--black);
+  box-shadow: var(--black) 0px 1px 3px 0px, var(--black-500) 0px 0px 0px 1px;
+  padding-bottom: 6px;
+`;
+
 export const Container = styled.header`
-  padding-top: 15px;
   display: flex;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1296px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
 `;
 
 export const Logo = styled.div``;

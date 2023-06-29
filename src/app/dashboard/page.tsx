@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react";
 import { Container, ContentContainer } from "./styles";
 import { Header } from "@/components/Header";
 import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
-import { Test } from "@/components/Test";
 import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
 import { CommomCaroussel } from "@/components/AllCommomCaroussel/CommomCaroussel";
 import { DxxRecommend } from "@/components/AllDxxRecommend/DxxRecommend";
@@ -21,26 +20,28 @@ export default function Home() {
   }, [userProfile, userProfile.id, userProfile.recommend.length]);
 
   return (
-    <ContentContainer>
-      <Container>
-        <Header />
-        <Bestmovies />
-        <Documentaries />
-        <CommomCaroussel
-          title="10 Rilington Place"
-          typyMovieAndSeries="War and Crime series and movies"
-        />
-        <CommomCaroussel
-          title="10 Rilington Place"
-          typyMovieAndSeries="Comedy series and movies"
-        />
-        <DxxRecommend />
-        <CommomCaroussel
-          title="10 Rilington Place"
-          typyMovieAndSeries="Recommended for you"
-        />
-        <Footer />
-      </Container>
-    </ContentContainer>
+    <>
+      <Header />
+      <ContentContainer>
+        <Container>
+          <Bestmovies />
+          <Documentaries />
+          <CommomCaroussel
+            title="10 Rilington Place"
+            typyMovieAndSeries="War and Crime series and movies"
+          />
+          <CommomCaroussel
+            title="10 Rilington Place"
+            typyMovieAndSeries="Comedy series and movies"
+          />
+          <DxxRecommend />
+          <CommomCaroussel
+            title="10 Rilington Place"
+            typyMovieAndSeries="Recommended for you"
+          />
+          <Footer />
+        </Container>
+      </ContentContainer>
+    </>
   );
 }
