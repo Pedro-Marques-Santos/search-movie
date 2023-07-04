@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 interface IContainer {
-  statenavbarmenu: boolean;
+  statenavbarmenu: number;
 }
 
 export const ContentContainer = styled.div<IContainer>`
@@ -11,8 +11,9 @@ export const ContentContainer = styled.div<IContainer>`
   position: fixed;
   z-index: 1000;
 
-  visibility: ${(props) => (props.statenavbarmenu ? "visible" : "hidden")};
-  opacity: ${(props) => (props.statenavbarmenu ? "1" : "0")};
+  visibility: ${(props) =>
+    props.statenavbarmenu === 1 ? "visible" : "hidden"};
+  opacity: ${(props) => (props.statenavbarmenu === 1 ? "1" : "0")};
   transition: 0.4s;
   background: var(--black-800);
 `;

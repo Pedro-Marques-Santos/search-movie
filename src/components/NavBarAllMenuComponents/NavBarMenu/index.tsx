@@ -14,7 +14,7 @@ export function NavBarMenu({
   openAndCloseNavBarMenu,
 }: INavBarMenu) {
   return (
-    <ContentContainer statenavbarmenu={stateNavBarMenu}>
+    <ContentContainer statenavbarmenu={+stateNavBarMenu}>
       <Container>
         <LogoAndCloseNavBarMenu
           openAndCloseNavBarMenu={openAndCloseNavBarMenu}
@@ -26,3 +26,7 @@ export function NavBarMenu({
     </ContentContainer>
   );
 }
+
+// obs nao pode mais utilizar boolean no styledcomponents
+// o correto é transformar em number, o + transforma boolen em number
+// sendo true = 1 e false = 0

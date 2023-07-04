@@ -32,6 +32,14 @@ export const Container = styled.div`
     font-family: ${roboto.style.fontFamily};
   }
 
+  a {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+    text-decoration: underline;
+    color: var(--white-200);
+  }
+
   button:hover {
     background: var(--red-700);
   }
@@ -39,6 +47,8 @@ export const Container = styled.div`
 
 export const Icon = styled.div`
   margin-right: 2px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Img = styled.div``;

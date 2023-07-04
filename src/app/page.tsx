@@ -74,6 +74,7 @@ export default function Home() {
           </Icon>
           GOOGLE
         </button>
+        <a href="/dashboard">anonymous login</a>
       </Container>
       {stateLoadingLogin ? (
         <GifCenter top="70%" width={"38px"} height={"38px"} />

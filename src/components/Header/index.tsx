@@ -5,7 +5,6 @@ import Image from "next/image";
 import logo2 from "../../assets/login/LOGO.svg";
 
 import { FaSearch } from "react-icons/fa";
-import { BsFillBellFill } from "react-icons/bs";
 import { MdOutlineFormatAlignRight } from "react-icons/md";
 import { BsPersonBoundingBox } from "react-icons/bs";
 
@@ -20,6 +19,7 @@ import {
   MenuXl,
   NavContainer,
 } from "./styles";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 
@@ -28,10 +28,19 @@ interface IHeader {
 }
 
 export function Header({ modifyStateNavBarMenu }: IHeader) {
+  const router = useRouter();
   const { userGoogle } = useContext(AuthenticationMyUserContext);
 
   if (userGoogle) {
     console.log(userGoogle.user.photoURL);
+  }
+
+  function goPageLogin() {
+    router.push("/");
+  }
+
+  function goPageSearch() {
+    router.push("/search");
   }
 
   return (
@@ -63,11 +72,17 @@ export function Header({ modifyStateNavBarMenu }: IHeader) {
                   />
                 </ImgIcon>
               ) : (
-                <BsPersonBoundingBox className="iconHeaderDashboardHeader" />
+                <BsPersonBoundingBox
+                  onClick={goPageLogin}
+                  className="iconHeaderDashboardHeader"
+                />
               )}
             </Icon>
             <Icon>
-              <FaSearch className="iconHeaderDashboardHeader" />
+              <FaSearch
+                onClick={goPageSearch}
+                className="iconHeaderDashboardHeader"
+              />
             </Icon>
           </Icons>
         </NavContainer>

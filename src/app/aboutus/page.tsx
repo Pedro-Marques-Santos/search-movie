@@ -2,11 +2,23 @@
 
 import { Header } from "@/components/Header";
 import { Container } from "./styles";
+import { useState } from "react";
+import { NavBarMenu } from "@/components/NavBarAllMenuComponents/NavBarMenu";
 
 export default function Home() {
+  const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
+
+  function openAndCloseNavBarMenu() {
+    setStateNavBarMenu(!stateNavBarMenu);
+  }
+
   return (
     <>
-      <Header />
+      <Header modifyStateNavBarMenu={openAndCloseNavBarMenu} />
+      <NavBarMenu
+        stateNavBarMenu={stateNavBarMenu}
+        openAndCloseNavBarMenu={openAndCloseNavBarMenu}
+      />
       <Container>
         <h1>who I am ?</h1>
         <h5>
