@@ -6,6 +6,10 @@ export const ContentContainer = styled.div`
   height: 100vh;
 `;
 
+interface IBackgroundGray {
+  statenavbarmenu: boolean;
+}
+
 export const Container = styled.div`
   max-width: 1296px;
   padding-left: 8px;

@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     --box-shadow-header: #F5F5F5;
     --yellow: #928c04;
     --yellow-100: #f4f3d2;
+    --blur: rgba(0, 0, 0, 0.6589);
   } 
 
   * {
@@ -45,6 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .iconHeaderDashboardHeader {
+    cursor: pointer;
     font-size: 20px;
 
     @media (max-width: 650px) {
@@ -87,5 +89,20 @@ export const GlobalStyle = createGlobalStyle`
     @media (max-width: 550px) {
       border-radius: 0px !important;
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 6.5px; /* width of the entire scrollbar */
+    -webkit-overflow-scrolling: auto;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--gray-100); /* color of the tracking area */
+    -webkit-overflow-scrolling: auto;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--black-400); /* color of the scroll thumb */
+    -webkit-overflow-scrolling: auto;
   }
 `;

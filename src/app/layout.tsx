@@ -4,6 +4,8 @@ import { AuthenticationMyUserProvider } from "@/context/authenticationUser";
 import { GlobalStyle } from "@/styles/global";
 import { StyleSheetManager } from "styled-components";
 
+import NoSsr from "../dynamic/NoSsr";
+
 export default function RootLayout({
   children,
 }: {
@@ -11,14 +13,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <StyleSheetManager>
-        <body>
-          <AuthenticationMyUserProvider>
+      {/* <StyleSheetManager> */}
+      <body>
+        <AuthenticationMyUserProvider>
+          <NoSsr>
             {children}
             <GlobalStyle />
-          </AuthenticationMyUserProvider>
-        </body>
-      </StyleSheetManager>
+          </NoSsr>
+        </AuthenticationMyUserProvider>
+      </body>
+      {/* </StyleSheetManager> */}
     </html>
   );
 }

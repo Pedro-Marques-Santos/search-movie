@@ -78,10 +78,7 @@ export const Icon = styled.div`
 `;
 
 export const IconProgessBar = styled.div`
-  display: none;
-  @media (max-width: 650px) {
-    display: flex;
-  }
+  display: flex;
 `;
 
 export const User = styled.div`

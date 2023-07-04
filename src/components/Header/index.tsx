@@ -19,12 +19,15 @@ import {
   Logo,
   MenuXl,
   NavContainer,
-  User,
 } from "./styles";
 import { useContext } from "react";
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 
-export function Header() {
+interface IHeader {
+  modifyStateNavBarMenu: () => void;
+}
+
+export function Header({ modifyStateNavBarMenu }: IHeader) {
   const { userGoogle } = useContext(AuthenticationMyUserContext);
 
   if (userGoogle) {
@@ -33,20 +36,22 @@ export function Header() {
 
   return (
     <ContentContainer>
-      {" "}
       <Container>
         <Logo>
           <Image src={logo2} width={155} height={45} alt="logo" />
         </Logo>
         <NavContainer>
           <MenuXl>
-            <a href="#">START</a>
-            <a href="#">ABOUT</a>
-            <a href="#">TELEGRAM</a>
+            <a href="/dashboard">START</a>
+            <a href="/aboutus">ABOUT</a>
+            <a href="https://telegram.org/">TELEGRAM</a>
           </MenuXl>
           <Icons>
             <IconProgessBar>
-              <MdOutlineFormatAlignRight className="iconHeaderDashboardHeader" />
+              <MdOutlineFormatAlignRight
+                onClick={modifyStateNavBarMenu}
+                className="iconHeaderDashboardHeader"
+              />
             </IconProgessBar>
             <Icon>
               {userGoogle ? (
@@ -60,9 +65,6 @@ export function Header() {
               ) : (
                 <BsPersonBoundingBox className="iconHeaderDashboardHeader" />
               )}
-            </Icon>
-            <Icon>
-              <BsFillBellFill className="iconHeaderDashboardHeader" />
             </Icon>
             <Icon>
               <FaSearch className="iconHeaderDashboardHeader" />
