@@ -5,7 +5,7 @@ import { LogoAndCloseNavBarMenu } from "../LogoAndCloseNavBarMenu";
 import { ContentContainer, Container } from "./styles";
 
 interface INavBarMenu {
-  stateNavBarMenu: boolean;
+  stateNavBarMenu?: number | undefined;
   openAndCloseNavBarMenu: () => void;
 }
 
@@ -13,8 +13,10 @@ export function NavBarMenu({
   stateNavBarMenu,
   openAndCloseNavBarMenu,
 }: INavBarMenu) {
+  console.log(stateNavBarMenu);
+
   return (
-    <ContentContainer statenavbarmenu={+stateNavBarMenu}>
+    <ContentContainer statenavbarmenu={stateNavBarMenu}>
       <Container>
         <LogoAndCloseNavBarMenu
           openAndCloseNavBarMenu={openAndCloseNavBarMenu}

@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Header modifyStateNavBarMenu={openAndCloseNavBarMenu} />
       <NavBarMenu
-        stateNavBarMenu={stateNavBarMenu}
+        stateNavBarMenu={stateNavBarMenu ? 1 : undefined}
         openAndCloseNavBarMenu={openAndCloseNavBarMenu}
       />
       <Container>

@@ -5,5 +5,7 @@ interface IBackgroundGray {
 }
 
 export function BackgroundGray({ stateNavBarMenu }: IBackgroundGray) {
-  return <Container statenavbarmenu={stateNavBarMenu}></Container>;
+  return (
+    <Container statenavbarmenu={stateNavBarMenu ? 1 : undefined}></Container>
+  );
 }
