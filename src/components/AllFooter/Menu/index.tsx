@@ -1,12 +1,13 @@
 "use client";
 import { Container } from "./styles";
+import Link from "next/link";
 
 export function Menu() {
   return (
     <Container>
-      <a href="##">CONTACT</a>
-      <a href="##">TERMS OF SERVICES</a>
-      <a href="##">ABOUT US</a>
+      <Link href="##">CONTACT</Link>
+      <Link href="##">TERMS OF SERVICES</Link>
+      <Link href="##">ABOUT US</Link>
     </Container>
   );
 }

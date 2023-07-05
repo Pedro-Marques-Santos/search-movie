@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ContentLinkAndIcon = styled.a`
+export const ContentLinkAndIcon = styled.div`
   display: flex;
   justify-content: start;
   &:first-child {
@@ -37,10 +37,12 @@ export const Icon = styled.div`
   align-items: center;
 `;
 
-export const Link = styled.div`
+export const LinkStyle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
-  color: var(--white-200);
+  a {
+    text-decoration: none;
+    color: var(--white-200);
+  }
 `;

@@ -17,3 +17,12 @@ export const User = styled.div`
   display: flex;
   cursor: pointer;
 `;
+
+export const ImgIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+`;

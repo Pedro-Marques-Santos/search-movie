@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Container } from "./styles";
 import { useState } from "react";
 import { NavBarMenu } from "@/components/NavBarAllMenuComponents/NavBarMenu";
+import { BackgroundGray } from "@/components/BackgroudGray";
 
 export default function Home() {
   const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
@@ -19,6 +20,7 @@ export default function Home() {
         stateNavBarMenu={stateNavBarMenu ? 1 : undefined}
         openAndCloseNavBarMenu={openAndCloseNavBarMenu}
       />
+      <BackgroundGray stateNavBarMenu={stateNavBarMenu} />
       <Container>
         <h1>who I am ?</h1>
         <h5>

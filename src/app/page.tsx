@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import logo from "../assets/login/LOGO.svg";
@@ -74,7 +74,7 @@ export default function Home() {
           </Icon>
           GOOGLE
         </button>
-        <a href="/dashboard">anonymous login</a>
+        <Link href="/dashboard">anonymous login</Link>
       </Container>
       {stateLoadingLogin ? (
         <GifCenter top="70%" width={"38px"} height={"38px"} />

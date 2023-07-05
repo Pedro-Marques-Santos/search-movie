@@ -13,8 +13,6 @@ export function NavBarMenu({
   stateNavBarMenu,
   openAndCloseNavBarMenu,
 }: INavBarMenu) {
-  console.log(stateNavBarMenu);
-
   return (
     <ContentContainer statenavbarmenu={stateNavBarMenu}>
       <Container>

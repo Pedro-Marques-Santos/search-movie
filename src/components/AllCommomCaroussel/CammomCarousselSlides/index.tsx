@@ -14,7 +14,7 @@ export function CommomCarousselSlides({ title }: ICommomCarousselSlides) {
 
   function searchMovieOrSerieWatch(title: string) {
     const tokentitle = encodeURI(title);
-    console.log(tokentitle);
+    // console.log(tokentitle);
     router.push(`/resultwatch/${tokentitle}`);
   }
 

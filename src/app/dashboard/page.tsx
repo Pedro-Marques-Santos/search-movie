@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     if (userProfile.id !== "" && userProfile.id) {
-      console.log(userProfile);
+      // console.log(userProfile);
     }
   }, [userProfile, userProfile.id, userProfile.recommend.length]);
 

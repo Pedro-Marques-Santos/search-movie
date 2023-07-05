@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
+import Link from "next/link";
 import logo2 from "../../assets/login/LOGO.svg";
 
 import { FaSearch } from "react-icons/fa";
@@ -31,8 +31,10 @@ export function Header({ modifyStateNavBarMenu }: IHeader) {
   const router = useRouter();
   const { userGoogle } = useContext(AuthenticationMyUserContext);
 
+  console.log(userGoogle);
+
   if (userGoogle) {
-    console.log(userGoogle.user.photoURL);
+    // console.log(userGoogle.user.photoURL);
   }
 
   function goPageLogin() {
@@ -51,9 +53,9 @@ export function Header({ modifyStateNavBarMenu }: IHeader) {
         </Logo>
         <NavContainer>
           <MenuXl>
-            <a href="/dashboard">START</a>
-            <a href="/aboutus">ABOUT</a>
-            <a href="https://telegram.org/">TELEGRAM</a>
+            <Link href="/dashboard">START</Link>
+            <Link href="/aboutus">ABOUT</Link>
+            <Link href="##">TELEGRAM</Link>
           </MenuXl>
           <Icons>
             <IconProgessBar>
