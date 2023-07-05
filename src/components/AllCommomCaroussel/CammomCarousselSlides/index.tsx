@@ -21,14 +21,16 @@ export function CommomCarousselSlides({ title }: ICommomCarousselSlides) {
   return (
     <Container onClick={() => searchMovieOrSerieWatch("the batman")}>
       <Image
-        src={"https://image.tmdb.org/t/p/w300/bfpwVLuKV7LSKKUZq60wDFS7Es6.jpg"}
+        src={"https://image.tmdb.org/t/p/w780/rHUKzMqqsrXQjRO8OobnKy2qZ4Z.jpg"}
         alt="movie"
         width={250}
         height={140.83}
         style={{
           width: "100%",
           minWidth: "58px",
+          maxWidth: "250px",
           height: "auto",
+          maxHeight: "140.63px",
         }}
       />
       <h5>{title}</h5>

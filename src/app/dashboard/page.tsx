@@ -11,10 +11,14 @@ import { DxxRecommend } from "@/components/AllDxxRecommend/DxxRecommend";
 import { Footer } from "@/components/AllFooter/Footer";
 import { NavBarMenu } from "@/components/NavBarAllMenuComponents/NavBarMenu";
 import { BackgroundGray } from "@/components/BackgroudGray";
+import { war } from "@/api/requestWarAndCrime";
 
 export default function Home() {
   const { userProfile } = useContext(AuthenticationMyUserContext);
   const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
+
+  const seriesAndMovies = war();
+  console.log(seriesAndMovies);
 
   useEffect(() => {
     if (userProfile.id !== "" && userProfile.id) {
@@ -40,7 +44,7 @@ export default function Home() {
           <Documentaries />
           <CommomCaroussel
             title="10 Rilington Place"
-            typyMovieAndSeries="War and Crime series and movies"
+            typyMovieAndSeries="Drame and Crime series and movies"
           />
           <CommomCaroussel
             title="10 Rilington Place"
