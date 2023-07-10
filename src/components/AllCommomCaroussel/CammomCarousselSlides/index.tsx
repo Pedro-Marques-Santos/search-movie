@@ -7,9 +7,10 @@ import { useRouter } from "next/navigation";
 
 interface ICommomCarousselSlides {
   title: string;
+  img: string;
 }
 
-export function CommomCarousselSlides({ title }: ICommomCarousselSlides) {
+export function CommomCarousselSlides({ title, img }: ICommomCarousselSlides) {
   const router = useRouter();
 
   function searchMovieOrSerieWatch(title: string) {
@@ -21,7 +22,7 @@ export function CommomCarousselSlides({ title }: ICommomCarousselSlides) {
   return (
     <Container onClick={() => searchMovieOrSerieWatch("the batman")}>
       <Image
-        src={"https://image.tmdb.org/t/p/w780/rHUKzMqqsrXQjRO8OobnKy2qZ4Z.jpg"}
+        src={img}
         alt="movie"
         width={250}
         height={140.83}

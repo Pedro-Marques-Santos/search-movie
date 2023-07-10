@@ -31,8 +31,6 @@ export function Header({ modifyStateNavBarMenu }: IHeader) {
   const router = useRouter();
   const { userGoogle } = useContext(AuthenticationMyUserContext);
 
-  console.log(userGoogle);
-
   if (userGoogle) {
     // console.log(userGoogle.user.photoURL);
   }

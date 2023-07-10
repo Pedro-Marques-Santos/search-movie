@@ -11,15 +11,18 @@ import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
 import { CommomCarousselSlides } from "../CammomCarousselSlides";
+import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 
 interface ICommomCaroussel {
-  title: string;
   typyMovieAndSeries: string;
+  genreOne?: [];
+  genreTwo?: [];
 }
 
 export function CommomCaroussel({
-  title,
   typyMovieAndSeries,
+  genreOne,
+  genreTwo,
 }: ICommomCaroussel) {
   return (
     <Container>
@@ -32,36 +35,26 @@ export function CommomCaroussel({
         className="mySwiper"
         autoHeight={true}
       >
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-commom-caroussel">
-          <CommomCarousselSlides title={title} />
-        </SwiperSlide>
+        {genreOne?.map((drame: IGenreMoviesAndSeries, index) => {
+          return drame.backdropURLs.original === undefined ? null : (
+            <SwiperSlide key={index} className="carousel-commom-caroussel">
+              <CommomCarousselSlides
+                title={drame.title}
+                img={drame.backdropURLs.original}
+              />
+            </SwiperSlide>
+          );
+        })}
+        {genreTwo?.map((drame: IGenreMoviesAndSeries, index) => {
+          return drame.backdropURLs.original === undefined ? null : (
+            <SwiperSlide key={index} className="carousel-commom-caroussel">
+              <CommomCarousselSlides
+                title={drame.title}
+                img={drame.backdropURLs.original}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </Container>
   );

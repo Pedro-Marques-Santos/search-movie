@@ -11,8 +11,14 @@ import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
 import { DocumentariesSlides } from "../DocumentariesSlides";
+import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 
-export function Documentaries() {
+interface IDocumentaries {
+  genreOne?: [];
+  genreTwo?: [];
+}
+
+export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
   return (
     <Container>
       <h1>Documentaries and Talk shows</h1>
@@ -24,7 +30,27 @@ export function Documentaries() {
         className="mySwiper"
         autoHeight={true}
       >
-        <SwiperSlide className="carousel-documentaries">
+        {genreOne?.map((drame: IGenreMoviesAndSeries, index) => {
+          return drame.backdropURLs.original === undefined ? null : (
+            <SwiperSlide key={index} className="carousel-commom-caroussel">
+              <DocumentariesSlides
+                title={drame.title}
+                img={drame.backdropURLs.original}
+              />
+            </SwiperSlide>
+          );
+        })}
+        {genreTwo?.map((drame: IGenreMoviesAndSeries, index) => {
+          return drame.backdropURLs.original === undefined ? null : (
+            <SwiperSlide key={index} className="carousel-commom-caroussel">
+              <DocumentariesSlides
+                title={drame.title}
+                img={drame.backdropURLs.original}
+              />
+            </SwiperSlide>
+          );
+        })}
+        {/* <SwiperSlide className="carousel-documentaries">
           <DocumentariesSlides />
         </SwiperSlide>
         <SwiperSlide className="carousel-documentaries">
@@ -53,7 +79,7 @@ export function Documentaries() {
         </SwiperSlide>
         <SwiperSlide className="carousel-documentaries">
           <DocumentariesSlides />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </Container>
   );

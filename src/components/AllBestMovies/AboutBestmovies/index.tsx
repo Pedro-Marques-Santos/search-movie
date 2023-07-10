@@ -11,18 +11,20 @@ import {
 
 interface IAboutBestmovies {
   typeCarrousel: string;
+  title: string;
+  about: string;
 }
 
-export function AboutBestmovies({ typeCarrousel }: IAboutBestmovies) {
+export function AboutBestmovies({
+  typeCarrousel,
+  title,
+  about,
+}: IAboutBestmovies) {
   return (
     <ContentContainer typecaroussel={typeCarrousel}>
       <Container>
-        <Title>The Batman </Title>
-        <AboutMovie>
-          In his second year of fighting crime, Batman uncovers corruption in
-          Gotham City that connects to his own family while facing a serial
-          killer known as the Riddler.
-        </AboutMovie>
+        <Title>{title}</Title>
+        <AboutMovie>{about}</AboutMovie>
         <AboutMovieLocationEnd>
           <Youtube>Youtube</Youtube>
         </AboutMovieLocationEnd>

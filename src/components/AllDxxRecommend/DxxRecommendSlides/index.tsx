@@ -3,11 +3,16 @@
 import { ImgDxxRecommend } from "../ImgDxxRecommend";
 import { Container } from "./styles";
 
-export function DxxRecommendSlides() {
+interface IDxxRecommendSlides {
+  img: string;
+  title: string;
+}
+
+export function DxxRecommendSlides({ img, title }: IDxxRecommendSlides) {
   return (
     <Container>
-      <ImgDxxRecommend />
-      <h5>The Batman</h5>
+      <ImgDxxRecommend img={img} />
+      <h5>{title}</h5>
     </Container>
   );
 }

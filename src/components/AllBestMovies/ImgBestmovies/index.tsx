@@ -6,17 +6,19 @@ import Image from "next/image";
 
 interface ImgBestmovies {
   typeCarrousel: string;
+  img: string;
 }
 
-export function ImgBestmovies({ typeCarrousel = "standard" }: ImgBestmovies) {
+export function ImgBestmovies({
+  typeCarrousel = "standard",
+  img,
+}: ImgBestmovies) {
   return (
     <Container>
       {typeCarrousel === "standard" && (
         <>
           <Image
-            src={
-              "https://image.tmdb.org/t/p/w780/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg"
-            }
+            src={img}
             alt="movie"
             width={553.11}
             height={268.41}
@@ -34,11 +36,8 @@ export function ImgBestmovies({ typeCarrousel = "standard" }: ImgBestmovies) {
       )}
       {typeCarrousel === "firstimgslide" && (
         <>
-          {" "}
           <Image
-            src={
-              "https://image.tmdb.org/t/p/w780/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg"
-            }
+            src={img}
             alt="movie"
             width={553.11}
             height={268.41}

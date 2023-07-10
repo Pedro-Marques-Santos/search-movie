@@ -4,11 +4,15 @@ import { Container } from "./styles";
 
 import Image from "next/image";
 
-export function ImgDocumentaries() {
+interface IImgDocumentaries {
+  img: string;
+}
+
+export function ImgDocumentaries({ img }: IImgDocumentaries) {
   return (
     <Container>
       <Image
-        src={"https://image.tmdb.org/t/p/w300/bfpwVLuKV7LSKKUZq60wDFS7Es6.jpg"}
+        src={img}
         alt="movie"
         width={300}
         height={160}

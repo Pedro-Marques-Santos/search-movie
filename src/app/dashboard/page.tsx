@@ -1,63 +1,50 @@
-"use client";
+"use server";
 
-import { AuthenticationMyUserContext } from "@/context/authenticationUser";
-import { useContext, useEffect, useState } from "react";
-import { Container, ContentContainer } from "./styles";
-import { Header } from "@/components/Header";
-import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
-import { Documentaries } from "@/components/AllDocumentaries/Documentaries";
-import { CommomCaroussel } from "@/components/AllCommomCaroussel/CommomCaroussel";
-import { DxxRecommend } from "@/components/AllDxxRecommend/DxxRecommend";
-import { Footer } from "@/components/AllFooter/Footer";
-import { NavBarMenu } from "@/components/NavBarAllMenuComponents/NavBarMenu";
-import { BackgroundGray } from "@/components/BackgroudGray";
-import { war } from "@/api/requestWarAndCrime";
+import {
+  resquestGenresBestmovies,
+  resquestGenresComedy,
+  resquestGenresCrime,
+  resquestGenresDocumentariesOne,
+  resquestGenresDocumentariesTwo,
+  resquestGenresDrame,
+  resquestGenresRamdom,
+} from "@/api/requestDrameAndCrime";
+import DashboardPage from "@/components/Dashboardpage";
 
-export default function Home() {
-  const { userProfile } = useContext(AuthenticationMyUserContext);
-  const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
+export interface IGenreMoviesAndSeries {
+  title: string;
+  backdropURLs: {
+    original: string;
+  };
+  posterURLs: {
+    original: string;
+    154: string;
+    342: string;
+    500: string;
+  };
+  overview: string;
+}
 
-  const seriesAndMovies = war();
-  console.log(seriesAndMovies);
-
-  useEffect(() => {
-    if (userProfile.id !== "" && userProfile.id) {
-      // console.log(userProfile);
-    }
-  }, [userProfile, userProfile.id, userProfile.recommend.length]);
-
-  function openAndCloseNavBarMenu() {
-    setStateNavBarMenu(!stateNavBarMenu);
-  }
+export default async function Home() {
+  const genreDrame = await resquestGenresDrame();
+  const genreCrime = await resquestGenresCrime();
+  const genreComedy = await resquestGenresComedy();
+  const genreRandom = await resquestGenresRamdom();
+  const genreDocumentariesOne = await resquestGenresDocumentariesOne();
+  const genreDocumentariesTwo = await resquestGenresDocumentariesTwo();
+  const genreBestmovies = await resquestGenresBestmovies();
 
   return (
     <>
-      <Header modifyStateNavBarMenu={openAndCloseNavBarMenu} />
-      <NavBarMenu
-        stateNavBarMenu={stateNavBarMenu ? 1 : undefined}
-        openAndCloseNavBarMenu={openAndCloseNavBarMenu}
+      <DashboardPage
+        genreComedy={genreComedy}
+        genreDrame={genreDrame}
+        genreCrime={genreCrime}
+        genreRandom={genreRandom}
+        genreDocumentariesOne={genreDocumentariesOne}
+        genreDocumentariesTwo={genreDocumentariesTwo}
+        genreBestmovies={genreBestmovies}
       />
-      <BackgroundGray stateNavBarMenu={stateNavBarMenu} />
-      <ContentContainer>
-        <Container>
-          <Bestmovies />
-          <Documentaries />
-          <CommomCaroussel
-            title="10 Rilington Place"
-            typyMovieAndSeries="Drame and Crime series and movies"
-          />
-          <CommomCaroussel
-            title="10 Rilington Place"
-            typyMovieAndSeries="Comedy series and movies"
-          />
-          <DxxRecommend />
-          <CommomCaroussel
-            title="10 Rilington Place"
-            typyMovieAndSeries="Recommended for you"
-          />
-          <Footer />
-        </Container>
-      </ContentContainer>
     </>
   );
 }

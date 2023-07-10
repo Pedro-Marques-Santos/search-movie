@@ -12,8 +12,15 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import { BestmoviesSlides } from "../BestmoviesSlides";
+import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 
-export function Bestmovies() {
+interface IBestmovies {
+  genreOne?: [];
+}
+
+export function Bestmovies({ genreOne }: IBestmovies) {
+  console.log(genreOne);
+
   return (
     <Container>
       <Swiper
@@ -24,24 +31,29 @@ export function Bestmovies() {
         className="mySwiper"
         autoHeight={true}
       >
-        <SwiperSlide className="carousel-bestmovies">
-          <BestmoviesSlides typeCarrousel={"standard"} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-bestmovies">
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-bestmovies">
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-bestmovies">
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-bestmovies">
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-bestmovies">
-          <BestmoviesSlides typeCarrousel={"firstimgslide"} />
-        </SwiperSlide>
+        {genreOne?.map((drame: IGenreMoviesAndSeries, index) => {
+          return index === 0 ? (
+            drame.backdropURLs.original === undefined ? null : (
+              <SwiperSlide key={index} className="carousel-bestmovies">
+                <BestmoviesSlides
+                  typeCarrousel={"standard"}
+                  title={drame.title}
+                  img={drame.backdropURLs.original}
+                  about={drame.overview}
+                />
+              </SwiperSlide>
+            )
+          ) : drame.backdropURLs.original === undefined ? null : (
+            <SwiperSlide key={index} className="carousel-bestmovies">
+              <BestmoviesSlides
+                typeCarrousel={"firstimgslide"}
+                title={drame.title}
+                img={drame.backdropURLs.original}
+                about={drame.overview}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </Container>
   );

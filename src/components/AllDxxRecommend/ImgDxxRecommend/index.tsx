@@ -4,18 +4,24 @@ import { Container } from "./styles";
 
 import Image from "next/image";
 
-export function ImgDxxRecommend() {
+interface IImgDxxRecommend {
+  img: string;
+}
+
+export function ImgDxxRecommend({ img }: IImgDxxRecommend) {
   return (
     <Container>
       <Image
-        src={"https://image.tmdb.org/t/p/w780/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg"}
+        src={img}
         alt="movie"
         width={280}
         height={157.5}
         style={{
           width: "100%",
           minWidth: "58px",
+          maxWidth: "280px",
           height: "auto",
+          maxHeight: "157.5px",
         }}
       />
     </Container>

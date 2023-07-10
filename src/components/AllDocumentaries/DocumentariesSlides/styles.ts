@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 15px;
+  font-size: 13px;
   color: var(--gray-100);
   text-shadow: black 0.01em 0.01em 0.1em;
   font-weight: 600;
@@ -33,12 +33,12 @@ export const EndSlide = styled.div`
   align-items: end;
   color: gray;
 
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 300;
   line-height: 9px;
   letter-spacing: 0em;
   @media (max-width: 600px) {
-    font-size: 12.15px;
+    font-size: 11.15px;
     display: flex;
     align-items: center;
   }

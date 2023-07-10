@@ -3,11 +3,16 @@
 import { ImgDocumentaries } from "../ImgDocumentaries";
 import { Container, Title, EndSlide } from "./styles";
 
-export function DocumentariesSlides() {
+interface IDocumentariesSlides {
+  img: string;
+  title: string;
+}
+
+export function DocumentariesSlides({ img, title }: IDocumentariesSlides) {
   return (
     <Container>
-      <ImgDocumentaries />
-      <Title>According to Chrisley</Title>
+      <ImgDocumentaries img={img} />
+      <Title>{title}</Title>
       <EndSlide>Talk Show</EndSlide>
     </Container>
   );
