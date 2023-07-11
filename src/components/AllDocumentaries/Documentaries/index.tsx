@@ -21,7 +21,7 @@ interface IDocumentaries {
 export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
   return (
     <Container>
-      <h1>Documentaries and Talk shows</h1>
+      <h1>Documentaries</h1>
       <Swiper
         style={{ width: "100%", height: "100%" }}
         slidesPerView={"auto"}
@@ -36,6 +36,7 @@ export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
               <DocumentariesSlides
                 title={drame.title}
                 img={drame.backdropURLs.original}
+                drame={drame}
               />
             </SwiperSlide>
           );
@@ -46,40 +47,11 @@ export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
               <DocumentariesSlides
                 title={drame.title}
                 img={drame.backdropURLs.original}
+                drame={drame}
               />
             </SwiperSlide>
           );
         })}
-        {/* <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide>
-        <SwiperSlide className="carousel-documentaries">
-          <DocumentariesSlides />
-        </SwiperSlide> */}
       </Swiper>
     </Container>
   );

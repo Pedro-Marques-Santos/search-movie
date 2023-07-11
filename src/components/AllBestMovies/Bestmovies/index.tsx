@@ -40,6 +40,7 @@ export function Bestmovies({ genreOne }: IBestmovies) {
                   title={drame.title}
                   img={drame.backdropURLs.original}
                   about={drame.overview}
+                  drame={drame}
                 />
               </SwiperSlide>
             )
@@ -50,6 +51,7 @@ export function Bestmovies({ genreOne }: IBestmovies) {
                 title={drame.title}
                 img={drame.backdropURLs.original}
                 about={drame.overview}
+                drame={drame}
               />
             </SwiperSlide>
           );

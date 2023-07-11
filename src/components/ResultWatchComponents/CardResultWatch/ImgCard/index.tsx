@@ -4,11 +4,15 @@ import { Container } from "./styles";
 
 import Image from "next/image";
 
-export function ImgCard() {
+interface IImgCard {
+  img: string;
+}
+
+export function ImgCard({ img }: IImgCard) {
   return (
     <Container>
       <Image
-        src={"https://image.tmdb.org/t/p/w780/b0PlSFdDwbyK0cf5RxwDpaOJQvQ.jpg"}
+        src={img}
         alt="movie"
         width={360}
         height={202.8}

@@ -5,6 +5,7 @@ import { GlobalStyle } from "@/styles/global";
 import { StyleSheetManager } from "styled-components";
 
 import NoSsr from "../dynamic/NoSsr";
+import { MyMovieAndSerieProvider } from "@/context/myMovieAndSerie";
 
 export default function RootLayout({
   children,
@@ -16,10 +17,12 @@ export default function RootLayout({
       {/* <StyleSheetManager> */}
       <body>
         <AuthenticationMyUserProvider>
-          <NoSsr>
-            {children}
-            <GlobalStyle />
-          </NoSsr>
+          <MyMovieAndSerieProvider>
+            <NoSsr>
+              {children}
+              <GlobalStyle />
+            </NoSsr>
+          </MyMovieAndSerieProvider>
         </AuthenticationMyUserProvider>
       </body>
       {/* </StyleSheetManager> */}

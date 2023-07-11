@@ -11,6 +11,10 @@ import {
 } from "@/api/requestDrameAndCrime";
 import DashboardPage from "@/components/Dashboardpage";
 
+interface IGenres {
+  name: string;
+}
+
 export interface IGenreMoviesAndSeries {
   title: string;
   backdropURLs: {
@@ -23,6 +27,8 @@ export interface IGenreMoviesAndSeries {
     500: string;
   };
   overview: string;
+  genres: IGenres[];
+  type: string;
 }
 
 export default async function Home() {

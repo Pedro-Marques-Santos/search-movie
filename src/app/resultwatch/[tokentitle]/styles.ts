@@ -6,3 +6,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const ErrorAndWarning = styled.div`
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  color: red;
+`;

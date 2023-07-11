@@ -41,6 +41,7 @@ export function CommomCaroussel({
               <CommomCarousselSlides
                 title={drame.title}
                 img={drame.backdropURLs.original}
+                drame={drame}
               />
             </SwiperSlide>
           );
@@ -51,6 +52,7 @@ export function CommomCaroussel({
               <CommomCarousselSlides
                 title={drame.title}
                 img={drame.backdropURLs.original}
+                drame={drame}
               />
             </SwiperSlide>
           );

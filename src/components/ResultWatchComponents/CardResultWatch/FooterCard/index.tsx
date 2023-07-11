@@ -1,12 +1,26 @@
 "use client";
 
-import { Container, Tag, Youtube } from "./styles";
+import { Container, Genre, Tag, Youtube } from "./styles";
 
-export function FooterCard() {
+interface IGenres {
+  name: string;
+}
+
+interface IFooterCard {
+  genres: IGenres[];
+  type: string;
+}
+
+export function FooterCard({ genres, type }: IFooterCard) {
   return (
     <Container>
-      <Tag>Genres: Short - Comedy</Tag>
-      <Tag>Directors: Corey Shurge</Tag>
+      <Tag>
+        Genres:
+        {genres.map((genre, index) => {
+          return <Genre key={index}>{genre.name}</Genre>;
+        })}
+      </Tag>
+      <Tag>Type: {type}</Tag>
       <Youtube>Youtube</Youtube>
     </Container>
   );

@@ -31,4 +31,8 @@ export const ContainerSlides = styled.div`
     justify-items: center;
   }
   gap: 20px;
+
+  div {
+    cursor: pointer;
+  }
 `;

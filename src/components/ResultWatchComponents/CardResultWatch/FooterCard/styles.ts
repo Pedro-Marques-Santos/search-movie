@@ -11,6 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Tag = styled.div`
+  display: flex;
   margin-bottom: 1px;
   font-size: 11.5px;
   @media (max-height: 650px) {
@@ -34,5 +35,14 @@ export const Youtube = styled.div`
     font-size: 10.5px;
     width: 57px;
     height: 18px;
+  }
+`;
+
+export const Genre = styled.div`
+  margin-left: 8px;
+  display: flex;
+  font-size: 11.5px;
+  @media (max-height: 650px) {
+    font-size: 9.5px;
   }
 `;

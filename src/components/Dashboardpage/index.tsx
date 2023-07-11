@@ -32,13 +32,8 @@ export default function DashboardPage({
   genreBestmovies,
 }: IDashboardPage) {
   const { userProfile } = useContext(AuthenticationMyUserContext);
-  const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
 
-  // useEffect(() => {
-  //   if (userProfile.id !== "" && userProfile.id) {
-  //     console.log(userProfile);
-  //   }
-  // }, [userProfile, userProfile.id, userProfile.recommend.length]);
+  const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
 
   function openAndCloseNavBarMenu() {
     setStateNavBarMenu(!stateNavBarMenu);

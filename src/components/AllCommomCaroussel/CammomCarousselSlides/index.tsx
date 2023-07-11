@@ -1,26 +1,36 @@
 "use client";
+import { MyMovieAndSerieContext } from "@/context/myMovieAndSerie";
 import { Container } from "./styles";
 
 import Image from "next/image";
 
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 
 interface ICommomCarousselSlides {
   title: string;
   img: string;
+  drame: IGenreMoviesAndSeries;
 }
 
-export function CommomCarousselSlides({ title, img }: ICommomCarousselSlides) {
+export function CommomCarousselSlides({
+  title,
+  img,
+  drame,
+}: ICommomCarousselSlides) {
+  const { modifyMyMovieAndSerie } = useContext(MyMovieAndSerieContext);
+
   const router = useRouter();
 
   function searchMovieOrSerieWatch(title: string) {
+    modifyMyMovieAndSerie(drame);
     const tokentitle = encodeURI(title);
-    // console.log(tokentitle);
     router.push(`/resultwatch/${tokentitle}`);
   }
 
   return (
-    <Container onClick={() => searchMovieOrSerieWatch("the batman")}>
+    <Container onClick={() => searchMovieOrSerieWatch(title)}>
       <Image
         src={img}
         alt="movie"
