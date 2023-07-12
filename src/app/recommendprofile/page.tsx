@@ -14,6 +14,13 @@ import {
 } from "./styles";
 import { GifCenter } from "@/components/Gif/GifCenter";
 
+import allgenres from "../../data/genres";
+
+interface IAllgenres {
+  id: string;
+  name: string;
+}
+
 export default function Home() {
   const router = useRouter();
 
@@ -23,19 +30,9 @@ export default function Home() {
 
   const [stateLoadingLogin, setStateLoadingLogin] = useState(false);
 
-  const [genres, setGenres] = useState<[]>([]);
+  const newgenres = allgenres as IAllgenres[];
+
   const [genresLike, setGenresLike] = useState<string[]>([]);
-
-  useEffect(() => {
-    const executefetch = async () => {
-      let result = await searchAllGenres();
-      const resultarray = Object.entries(result)[0][1] as [];
-      const resultgenres = Object.values(resultarray) as [];
-      setGenres(resultgenres);
-    };
-
-    executefetch();
-  }, []);
 
   useEffect(() => {
     if (userProfile.recommend.length === 3) {
@@ -77,22 +74,22 @@ export default function Home() {
           choose 3 types of genres you would like to be recommended to you!
         </h1>
         <ListAllGenres className="mt-8 flex gap-5 justify-center flex-wrap">
-          {genres.map((gen: string, index) => {
-            return genresLike.includes(gen) === true ? (
+          {newgenres.map((gen, index) => {
+            return genresLike.includes(gen.id) === true ? (
               <FavoriteGenres
-                onClick={() => addNewGenresLike(gen)}
+                onClick={() => addNewGenresLike(gen.id)}
                 key={index}
                 className="w-36 h-20 bg-my-black-600 text-white flex justify-center items-center cursor-pointer border border-sky-700"
               >
-                {gen}
+                {gen.name}
               </FavoriteGenres>
             ) : (
               <AllGenres
-                onClick={() => addNewGenresLike(gen)}
+                onClick={() => addNewGenresLike(gen.id)}
                 key={index}
                 className="w-36 h-20 bg-my-black-600 text-white flex justify-center items-center cursor-pointer hover:bg-sky-700"
               >
-                {gen}
+                {gen.name}
               </AllGenres>
             );
           })}

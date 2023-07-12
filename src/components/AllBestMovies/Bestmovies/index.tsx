@@ -19,8 +19,6 @@ interface IBestmovies {
 }
 
 export function Bestmovies({ genreOne }: IBestmovies) {
-  console.log(genreOne);
-
   return (
     <Container>
       <Swiper
