@@ -17,12 +17,14 @@ interface ICommomCaroussel {
   typyMovieAndSeries: string;
   genreOne?: [];
   genreTwo?: [];
+  stateTrueLoanding: () => void;
 }
 
 export function CommomCaroussel({
   typyMovieAndSeries,
   genreOne,
   genreTwo,
+  stateTrueLoanding,
 }: ICommomCaroussel) {
   return (
     <Container>
@@ -42,6 +44,7 @@ export function CommomCaroussel({
                 title={drame.title}
                 img={drame.backdropURLs.original}
                 drame={drame}
+                stateTrueLoanding={stateTrueLoanding}
               />
             </SwiperSlide>
           );
@@ -53,6 +56,7 @@ export function CommomCaroussel({
                 title={drame.title}
                 img={drame.backdropURLs.original}
                 drame={drame}
+                stateTrueLoanding={stateTrueLoanding}
               />
             </SwiperSlide>
           );

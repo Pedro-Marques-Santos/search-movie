@@ -11,6 +11,7 @@ export const Container = styled.div<IGifCenter>`
   position: fixed;
   left: ${(props) => props.left};
   top: ${(props) => props.top};
+  z-index: 1000;
 `;
 
 interface IImg {

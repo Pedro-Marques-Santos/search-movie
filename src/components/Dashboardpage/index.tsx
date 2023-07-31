@@ -19,6 +19,7 @@ import { Footer } from "@/components/AllFooter/Footer";
 import { NavBarMenu } from "@/components/NavBarAllMenuComponents/NavBarMenu";
 import { BackgroundGray } from "@/components/BackgroudGray";
 import { resquestGenresMyRecommend } from "./requestMyRecommend";
+import { GifCenter } from "../Gif/GifCenter";
 
 interface IDashboardPage {
   genreDrame: [];
@@ -47,6 +48,8 @@ export default function DashboardPage({
   const { userProfile } = useContext(AuthenticationMyUserContext);
   const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
 
+  const [stateLoadingLogin, setStateLoadingLogin] = useState(false);
+
   const [genreMyRecommendOne, setGenreMyRecommendOne] = useState<[]>([]);
   const [genreMyRecommendTwo, setGenreMyRecommendTwo] = useState<[]>([]);
 
@@ -61,12 +64,11 @@ export default function DashboardPage({
         numerosAleatorios.push(numeroAleatorio);
       }
     }
-
     return numerosAleatorios;
   }, []);
 
   useEffect(() => {
-    if (userProfile) {
+    if (userProfile && userProfile.id && userProfile.recommend) {
       const randomMyGenreRecommend = memorizedValue(userProfile.recommend);
       randomMyGenreRecommend.map(async (genre, index) => {
         if (index === 0) {
@@ -85,6 +87,10 @@ export default function DashboardPage({
     setStateNavBarMenu(!stateNavBarMenu);
   }
 
+  function stateTrueLoanding() {
+    setStateLoadingLogin(true);
+  }
+
   console.log(genreMyRecommendOne, genreMyRecommendTwo);
 
   return (
@@ -97,30 +103,45 @@ export default function DashboardPage({
       <BackgroundGray stateNavBarMenu={stateNavBarMenu} />
       <ContentContainer>
         <Container>
-          <Bestmovies genreOne={genreBestmovies} />
+          <Bestmovies
+            genreOne={genreBestmovies}
+            stateTrueLoanding={stateTrueLoanding}
+          />
           <Documentaries
             genreOne={genreDocumentariesOne}
             genreTwo={genreDocumentariesTwo}
+            stateTrueLoanding={stateTrueLoanding}
           />
           <CommomCaroussel
             typyMovieAndSeries="Drame and Crime series and movies"
             genreOne={genreDrame}
             genreTwo={genreCrime}
+            stateTrueLoanding={stateTrueLoanding}
           />
           <CommomCaroussel
             typyMovieAndSeries="Comedy series and movies"
             genreOne={genreComedy}
+            stateTrueLoanding={stateTrueLoanding}
           />
-          <DxxRecommend genreOne={genreRandom} />
-          {userProfile ? (
+          <DxxRecommend
+            genreOne={genreRandom}
+            stateTrueLoanding={stateTrueLoanding}
+          />
+          {userProfile.id ? (
             <CommomCaroussel
               typyMovieAndSeries="Recommended for you"
               genreOne={genreMyRecommendOne}
               genreTwo={genreMyRecommendTwo}
+              stateTrueLoanding={stateTrueLoanding}
             />
           ) : null}
           <Footer />
         </Container>
+        {stateLoadingLogin ? (
+          <GifCenter top="50%" left="50%" width={"38px"} height={"38px"} />
+        ) : (
+          <></>
+        )}
       </ContentContainer>
     </>
   );

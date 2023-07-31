@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import logo from "../assets/login/LOGO.svg";
@@ -43,6 +42,11 @@ export default function Home() {
       });
   }
 
+  function goPageDashboard() {
+    setStateLoadingLogin(true);
+    router.push("/dashboard");
+  }
+
   useEffect(() => {
     if (userProfile.id !== "" && userProfile.id) {
       if (userProfile.recommend.length === 3) {
@@ -74,7 +78,7 @@ export default function Home() {
           </Icon>
           GOOGLE
         </button>
-        <Link href="/dashboard">anonymous login</Link>
+        <h6 onClick={goPageDashboard}>anonymous login</h6>
       </Container>
       {stateLoadingLogin ? (
         <GifCenter top="70%" width={"38px"} height={"38px"} />

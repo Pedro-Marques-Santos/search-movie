@@ -16,9 +16,14 @@ import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 interface IDocumentaries {
   genreOne?: [];
   genreTwo?: [];
+  stateTrueLoanding: () => void;
 }
 
-export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
+export function Documentaries({
+  genreOne,
+  genreTwo,
+  stateTrueLoanding,
+}: IDocumentaries) {
   return (
     <Container>
       <h1>Documentaries</h1>
@@ -37,6 +42,7 @@ export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
                 title={drame.title}
                 img={drame.backdropURLs.original}
                 drame={drame}
+                stateTrueLoanding={stateTrueLoanding}
               />
             </SwiperSlide>
           );
@@ -48,6 +54,7 @@ export function Documentaries({ genreOne, genreTwo }: IDocumentaries) {
                 title={drame.title}
                 img={drame.backdropURLs.original}
                 drame={drame}
+                stateTrueLoanding={stateTrueLoanding}
               />
             </SwiperSlide>
           );

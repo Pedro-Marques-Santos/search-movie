@@ -11,18 +11,21 @@ interface IDocumentariesSlides {
   img: string;
   title: string;
   drame: IGenreMoviesAndSeries;
+  stateTrueLoanding: () => void;
 }
 
 export function DocumentariesSlides({
   img,
   title,
   drame,
+  stateTrueLoanding,
 }: IDocumentariesSlides) {
   const { modifyMyMovieAndSerie } = useContext(MyMovieAndSerieContext);
 
   const router = useRouter();
 
   function searchMovieOrSerieWatch(title: string) {
+    stateTrueLoanding();
     modifyMyMovieAndSerie(drame);
     const tokentitle = encodeURI(title);
     router.push(`/resultwatch/${tokentitle}`);

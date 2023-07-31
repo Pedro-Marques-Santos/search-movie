@@ -12,6 +12,14 @@ export const ContentContainer = styled.div`
 
   padding-left: 8px;
   padding-right: 8px;
+
+  h6 {
+    cursor: pointer;
+    margin-top: 12px;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+  }
 `;
 
 export const Container = styled.div`

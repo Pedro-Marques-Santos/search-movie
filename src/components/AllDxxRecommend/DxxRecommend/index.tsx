@@ -10,9 +10,10 @@ import { MyMovieAndSerieContext } from "@/context/myMovieAndSerie";
 
 interface IDxxRecommend {
   genreOne: [];
+  stateTrueLoanding: () => void;
 }
 
-export function DxxRecommend({ genreOne }: IDxxRecommend) {
+export function DxxRecommend({ genreOne, stateTrueLoanding }: IDxxRecommend) {
   const { modifyMyMovieAndSerie } = useContext(MyMovieAndSerieContext);
 
   const router = useRouter();
@@ -21,6 +22,7 @@ export function DxxRecommend({ genreOne }: IDxxRecommend) {
     title: string,
     drame: IGenreMoviesAndSeries
   ) {
+    stateTrueLoanding();
     modifyMyMovieAndSerie(drame);
     const tokentitle = encodeURI(title);
     router.push(`/resultwatch/${tokentitle}`);

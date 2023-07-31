@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AboutBestmovies } from "../AboutBestmovies";
 import { ImgBestmovies } from "../ImgBestmovies";
 import { Container } from "./styles";
@@ -15,6 +15,7 @@ interface IBestmodivesSlides {
   img: string;
   about: string;
   drame: IGenreMoviesAndSeries;
+  stateTrueLoanding: () => void;
 }
 
 export function BestmoviesSlides({
@@ -23,12 +24,14 @@ export function BestmoviesSlides({
   img,
   about,
   drame,
+  stateTrueLoanding,
 }: IBestmodivesSlides) {
   const { modifyMyMovieAndSerie } = useContext(MyMovieAndSerieContext);
 
   const router = useRouter();
 
   function searchMovieOrSerieWatch(title: string) {
+    stateTrueLoanding();
     modifyMyMovieAndSerie(drame);
     const tokentitle = encodeURI(title);
     router.push(`/resultwatch/${tokentitle}`);

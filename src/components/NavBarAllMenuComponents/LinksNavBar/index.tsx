@@ -3,6 +3,7 @@ import { Container, ContentLinkAndIcon, Icon, LinkStyle } from "./styles";
 import { AiFillAppstore } from "react-icons/ai";
 import { FcAbout } from "react-icons/fc";
 import { FaTelegram } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 
 import Link from "next/link";
 
@@ -32,6 +33,14 @@ export function LinksNavBar() {
         </Icon>
         <LinkStyle>
           <Link href="##">Telegram</Link>
+        </LinkStyle>
+      </ContentLinkAndIcon>
+      <ContentLinkAndIcon>
+        <Icon>
+          <CiSearch size={23} />
+        </Icon>
+        <LinkStyle>
+          <Link href="/search">Search Movie and Serie</Link>
         </LinkStyle>
       </ContentLinkAndIcon>
     </Container>

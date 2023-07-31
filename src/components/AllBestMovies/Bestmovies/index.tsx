@@ -16,9 +16,10 @@ import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 
 interface IBestmovies {
   genreOne?: [];
+  stateTrueLoanding: () => void;
 }
 
-export function Bestmovies({ genreOne }: IBestmovies) {
+export function Bestmovies({ genreOne, stateTrueLoanding }: IBestmovies) {
   return (
     <Container>
       <Swiper
@@ -39,6 +40,7 @@ export function Bestmovies({ genreOne }: IBestmovies) {
                   img={drame.backdropURLs.original}
                   about={drame.overview}
                   drame={drame}
+                  stateTrueLoanding={stateTrueLoanding}
                 />
               </SwiperSlide>
             )
@@ -50,6 +52,7 @@ export function Bestmovies({ genreOne }: IBestmovies) {
                 img={drame.backdropURLs.original}
                 about={drame.overview}
                 drame={drame}
+                stateTrueLoanding={stateTrueLoanding}
               />
             </SwiperSlide>
           );

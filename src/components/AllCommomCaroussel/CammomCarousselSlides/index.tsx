@@ -12,18 +12,21 @@ interface ICommomCarousselSlides {
   title: string;
   img: string;
   drame: IGenreMoviesAndSeries;
+  stateTrueLoanding: () => void;
 }
 
 export function CommomCarousselSlides({
   title,
   img,
   drame,
+  stateTrueLoanding,
 }: ICommomCarousselSlides) {
   const { modifyMyMovieAndSerie } = useContext(MyMovieAndSerieContext);
 
   const router = useRouter();
 
   function searchMovieOrSerieWatch(title: string) {
+    stateTrueLoanding();
     modifyMyMovieAndSerie(drame);
     const tokentitle = encodeURI(title);
     router.push(`/resultwatch/${tokentitle}`);
