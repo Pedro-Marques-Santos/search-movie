@@ -1,14 +1,7 @@
 "use client";
 
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
-import {
-  useCallback,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { Container, ContentContainer } from "./styles";
 import { Header } from "@/components/Header";
 import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";

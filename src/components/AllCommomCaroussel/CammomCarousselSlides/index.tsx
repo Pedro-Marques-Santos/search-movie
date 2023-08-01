@@ -25,15 +25,15 @@ export function CommomCarousselSlides({
 
   const router = useRouter();
 
-  function searchMovieOrSerieWatch(title: string) {
+  function searchMovieOrSerieWatch() {
     stateTrueLoanding();
     modifyMyMovieAndSerie(drame);
-    const tokentitle = encodeURI(title);
-    router.push(`/resultwatch/${tokentitle}`);
+    const tokentitle = encodeURI(drame.title.toString());
+    router.push(`/resultwatch?search=${tokentitle}`);
   }
 
   return (
-    <Container onClick={() => searchMovieOrSerieWatch(title)}>
+    <Container onClick={() => searchMovieOrSerieWatch()}>
       <Image
         src={img}
         alt="movie"

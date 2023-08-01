@@ -7,10 +7,8 @@ import { NavBarMenu } from "@/components/NavBarAllMenuComponents/NavBarMenu";
 import { BackgroundGray } from "@/components/BackgroudGray";
 import { MyMovieAndSerieContext } from "@/context/myMovieAndSerie";
 
-export default function Page({ params }: { params: { tokentitle: string } }) {
+export default function Home() {
   const { myResultMovieAndSerie } = useContext(MyMovieAndSerieContext);
-
-  const title = decodeURI(params.tokentitle);
   const [stateNavBarMenu, setStateNavBarMenu] = useState(false);
 
   function openAndCloseNavBarMenu() {

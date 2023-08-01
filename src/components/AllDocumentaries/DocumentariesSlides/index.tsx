@@ -28,7 +28,7 @@ export function DocumentariesSlides({
     stateTrueLoanding();
     modifyMyMovieAndSerie(drame);
     const tokentitle = encodeURI(title);
-    router.push(`/resultwatch/${tokentitle}`);
+    router.push(`/resultwatch?search=${tokentitle}`);
   }
 
   return (
