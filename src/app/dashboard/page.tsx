@@ -11,7 +11,7 @@ import {
 } from "@/api/requestDrameAndCrime";
 import DashboardPage from "@/components/Dashboardpage";
 
-interface IGenres {
+export interface IGenres {
   name: string;
 }
 

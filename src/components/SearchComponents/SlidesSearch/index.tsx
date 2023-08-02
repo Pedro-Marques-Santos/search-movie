@@ -3,11 +3,16 @@
 import { ImgSlidesSearch } from "../ImgSlidesSearch";
 import { Container } from "./styles";
 
-export function SlidesSearch() {
+interface ISlidesSearch {
+  title: string;
+  img: string;
+}
+
+export function SlidesSearch({ title, img }: ISlidesSearch) {
   return (
     <Container>
-      <ImgSlidesSearch />
-      <h5>The Batman</h5>
+      <ImgSlidesSearch img={img} />
+      <h5>{title}</h5>
     </Container>
   );
 }

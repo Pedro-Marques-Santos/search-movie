@@ -6,6 +6,7 @@ export const Container = styled.div`
   max-width: 1296px;
   padding-left: 8px;
   padding-right: 8px;
+  padding-bottom: 100px;
   margin: 0 auto;
   padding-top: 100px;
   @media (max-width: 550px) {
@@ -22,12 +23,29 @@ export const Container = styled.div`
     margin-top: 20px;
     background: #00000038;
     border: none;
-    width: 100%;
+    width: 78%;
     height: 60px;
     border-radius: 5px;
     color: var(--white);
     padding-left: 20px;
     outline: none;
+  }
+
+  button {
+    width: 20%;
+    background: #dc1f27;
+    color: #ffffff;
+
+    color: #fff;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
 `;
 
@@ -47,4 +65,13 @@ export const ContainerSlides = styled.div`
     justify-items: center;
   }
   gap: 20px;
+
+  div {
+    cursor: pointer;
+  }
+`;
+
+export const ContainerInput = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
