@@ -44,7 +44,7 @@ export function AuthenticationMyUserProvider({
       {
         method: "POST",
         headers: new Headers({
-          Authorization: "Bearer " + result.user.accessToken,
+          Authorization: "Bearer " + result.user?.accessToken,
           "Content-type": "application/json; charset=UTF-8",
         }),
       }
