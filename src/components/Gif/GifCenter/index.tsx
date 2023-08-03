@@ -17,7 +17,7 @@ export function GifCenter({ top, left, width, height }: IGifCenter) {
   return (
     <Container top={top} left={left}>
       <Img width={width} height={height}>
-        <Image src={loading} alt="loading..." fill={true} />
+        <Image src={loading} alt="loading..." fill={true} sizes="38" />
       </Img>
     </Container>
   );

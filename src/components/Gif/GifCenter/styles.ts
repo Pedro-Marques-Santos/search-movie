@@ -20,6 +20,7 @@ interface IImg {
 }
 
 export const Img = styled.div<IImg>`
+  position: relative;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
 `;

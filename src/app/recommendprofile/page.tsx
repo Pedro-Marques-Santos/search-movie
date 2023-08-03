@@ -3,7 +3,6 @@ import { AuthenticationMyUserContext } from "@/context/authenticationUser";
 import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
-import { searchAllGenres } from "./allgenres";
 import {
   AllGenres,
   Button,
@@ -63,9 +62,11 @@ export default function Home() {
     }
   }
 
-  if (userProfile.id === "" || userProfile.id === undefined) {
-    router.push("/");
-  }
+  useEffect(() => {
+    if (userProfile.id === "" || userProfile.id === undefined) {
+      router.push("/");
+    }
+  }, [router, userProfile.id]);
 
   return (
     <ContentContainer>

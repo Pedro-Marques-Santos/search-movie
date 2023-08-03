@@ -2,10 +2,12 @@
 
 import { AuthenticationMyUserProvider } from "@/context/authenticationUser";
 import { GlobalStyle } from "@/styles/global";
-import { StyleSheetManager } from "styled-components";
 
-import NoSsr from "../dynamic/NoSsr";
 import { MyMovieAndSerieProvider } from "@/context/myMovieAndSerie";
+import StyledComponentsRegistry from "./registrystyledcomponents";
+
+import isPropValid from "@emotion/is-prop-valid";
+import { StyleSheetManager } from "styled-components";
 
 export default function RootLayout({
   children,
@@ -16,14 +18,18 @@ export default function RootLayout({
     <html lang="en">
       {/* <StyleSheetManager> */}
       <body>
-        <AuthenticationMyUserProvider>
-          <MyMovieAndSerieProvider>
-            <NoSsr>
-              {children}
-              <GlobalStyle />
-            </NoSsr>
-          </MyMovieAndSerieProvider>
-        </AuthenticationMyUserProvider>
+        <StyledComponentsRegistry>
+          <StyleSheetManager shouldForwardProp={isPropValid}>
+            <AuthenticationMyUserProvider>
+              <MyMovieAndSerieProvider>
+                {/* <NoSsr> */}
+                {children}
+                <GlobalStyle />
+                {/* </NoSsr> */}
+              </MyMovieAndSerieProvider>
+            </AuthenticationMyUserProvider>
+          </StyleSheetManager>
+        </StyledComponentsRegistry>
       </body>
       {/* </StyleSheetManager> */}
     </html>
