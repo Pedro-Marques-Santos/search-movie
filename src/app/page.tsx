@@ -30,6 +30,7 @@ export default function Home() {
       .then(async (result) => {
         setStateLoadingLogin(true);
         const response = await verifyToken(result);
+        console.log((await result.user.getIdToken()).toString());
         if (response.status === 201) {
           const userAndResponseStatus = await searchOrCreateUser(
             result.user.uid
@@ -72,7 +73,7 @@ export default function Home() {
           />
         </Img>
         <Image src={login} width={190} height={96} alt={"login"} priority />
-        <button onClick={handleGoogleSignIn} disabled={stateLoadingLogin}>
+        <button onClick={handleGoogleSignIn}>
           <Icon>
             <AiFillGoogleCircle />
           </Icon>
