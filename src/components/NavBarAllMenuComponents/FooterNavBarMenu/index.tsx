@@ -20,7 +20,11 @@ export function FooterNavBarMenu() {
   return (
     <Container>
       <Exit>
-        <ImExit size={23} style={{ color: "var(--white-200)" }} />
+        <ImExit
+          size={23}
+          style={{ color: "var(--white-200)" }}
+          onClick={goPageLogin}
+        />
       </Exit>
       <User>
         {userGoogle ? (

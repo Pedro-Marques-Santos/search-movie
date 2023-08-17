@@ -4,7 +4,7 @@ import { Container, Img } from "./styles";
 
 import Image from "next/image";
 
-import loading from "../../../assets/gif/loading.png";
+import loading from "../../../assets/gif/ZKZg.gif";
 
 interface IGifCenter {
   top?: string;

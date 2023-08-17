@@ -60,14 +60,6 @@ export function NavBarMenu({
         ) : (
           <></>
         )}
-        {/* <CategoriesNavBarMenu
-          myScrollToElement={myScrollToElement}
-          documentariesRef={documentariesRef}
-          warAndCrimeRef={warAndCrimeRef}
-          recommendDxxRef={recommendDxxRef}
-          youRecommendRef={youRecommendRef}
-          comedyRef={comedyRef}
-        /> */}
         <FooterNavBarMenu />
       </Container>
     </ContentContainer>
