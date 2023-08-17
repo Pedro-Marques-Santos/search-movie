@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
+import { RefObject, useContext } from "react";
 import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
 import { DxxRecommendSlides } from "../DxxRecommendSlides";
 import { Container, ContainerSlides } from "./styles";
@@ -11,9 +11,14 @@ import { MyMovieAndSerieContext } from "@/context/myMovieAndSerie";
 interface IDxxRecommend {
   genreOne: [];
   stateTrueLoanding: () => void;
+  recommendDxxRef: RefObject<HTMLHeadingElement>;
 }
 
-export function DxxRecommend({ genreOne, stateTrueLoanding }: IDxxRecommend) {
+export function DxxRecommend({
+  genreOne,
+  stateTrueLoanding,
+  recommendDxxRef,
+}: IDxxRecommend) {
   const { modifyMyMovieAndSerie } = useContext(MyMovieAndSerieContext);
 
   const router = useRouter();
@@ -30,7 +35,7 @@ export function DxxRecommend({ genreOne, stateTrueLoanding }: IDxxRecommend) {
 
   return (
     <Container>
-      <h1>8 movies and series recommended by DXX</h1>
+      <h1 ref={recommendDxxRef}>8 movies and series recommended by DXX</h1>
       <ContainerSlides>
         {genreOne?.map((drame: IGenreMoviesAndSeries, index) => {
           return (

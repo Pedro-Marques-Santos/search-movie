@@ -1,13 +1,41 @@
+import { RefObject } from "react";
 import { Category, Container } from "./styles";
 
-export function CategoriesNavBarMenu() {
+interface ICategoriesNavBarMenu {
+  myScrollToElement: (useref: RefObject<HTMLHeadingElement>) => void;
+  documentariesRef: RefObject<HTMLHeadingElement>;
+  warAndCrimeRef: RefObject<HTMLHeadingElement>;
+  recommendDxxRef: RefObject<HTMLHeadingElement>;
+  youRecommendRef: RefObject<HTMLHeadingElement>;
+  comedyRef: RefObject<HTMLHeadingElement>;
+}
+
+export function CategoriesNavBarMenu({
+  myScrollToElement,
+  documentariesRef,
+  warAndCrimeRef,
+  recommendDxxRef,
+  youRecommendRef,
+  comedyRef,
+}: ICategoriesNavBarMenu) {
   return (
     <Container>
       <h5>Categories</h5>
-      <Category href="#">Documentaries and Talk shows</Category>
-      <Category href="#">War and Crime series and movies</Category>
-      <Category href="#">8 movies and series recommended by DXX</Category>
-      <Category href="#">Recommended for you</Category>
+      <Category onClick={() => myScrollToElement(documentariesRef)}>
+        Documentaries and Talk shows
+      </Category>
+      <Category onClick={() => myScrollToElement(warAndCrimeRef)}>
+        War and Crime series and movies
+      </Category>
+      <Category onClick={() => myScrollToElement(comedyRef)}>
+        Comedy series and movies
+      </Category>
+      <Category onClick={() => myScrollToElement(recommendDxxRef)}>
+        8 movies and series recommended by DXX
+      </Category>
+      <Category onClick={() => myScrollToElement(youRecommendRef)}>
+        Recommended for you
+      </Category>
     </Container>
   );
 }

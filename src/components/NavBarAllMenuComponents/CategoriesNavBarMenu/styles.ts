@@ -19,6 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Category = styled.a`
+  cursor: pointer;
   margin-bottom: 10px;
   font-weight: 400;
   font-size: 14px;

@@ -12,23 +12,26 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import { CommomCarousselSlides } from "../CammomCarousselSlides";
 import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
+import { RefObject } from "react";
 
 interface ICommomCaroussel {
   typyMovieAndSeries: string;
   genreOne?: [];
   genreTwo?: [];
   stateTrueLoanding: () => void;
+  refObjetct: RefObject<HTMLHeadingElement>;
 }
 
 export function CommomCaroussel({
   typyMovieAndSeries,
   genreOne,
   genreTwo,
+  refObjetct,
   stateTrueLoanding,
 }: ICommomCaroussel) {
   return (
     <Container>
-      <h1>{typyMovieAndSeries}</h1>
+      <h1 ref={refObjetct}>{typyMovieAndSeries}</h1>
       <Swiper
         style={{ width: "100%", height: "100%" }}
         slidesPerView={"auto"}

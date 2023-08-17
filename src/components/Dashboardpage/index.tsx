@@ -1,7 +1,7 @@
 "use client";
 
 import { AuthenticationMyUserContext } from "@/context/authenticationUser";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { Container, ContentContainer } from "./styles";
 import { Header } from "@/components/Header";
 import { Bestmovies } from "@/components/AllBestMovies/Bestmovies";
@@ -46,6 +46,13 @@ export default function DashboardPage({
   const [genreMyRecommendOne, setGenreMyRecommendOne] = useState<[]>([]);
   const [genreMyRecommendTwo, setGenreMyRecommendTwo] = useState<[]>([]);
 
+  // userefs
+  const documentariesRef = useRef<HTMLHeadingElement>(null);
+  const warAndCrimeRef = useRef<HTMLHeadingElement>(null);
+  const comedyRef = useRef<HTMLHeadingElement>(null);
+  const recommendDxxRef = useRef<HTMLHeadingElement>(null);
+  const youRecommendRef = useRef<HTMLHeadingElement>(null);
+
   const memorizedValue = useCallback((recommends: string[]) => {
     const numerosAleatorios = [] as string[];
     const valoresPossiveis = recommends;
@@ -84,14 +91,17 @@ export default function DashboardPage({
     setStateLoadingLogin(true);
   }
 
-  console.log(genreMyRecommendOne, genreMyRecommendTwo);
-
   return (
     <>
       <Header modifyStateNavBarMenu={openAndCloseNavBarMenu} />
       <NavBarMenu
         stateNavBarMenu={stateNavBarMenu ? 1 : undefined}
         openAndCloseNavBarMenu={openAndCloseNavBarMenu}
+        documentariesRef={documentariesRef}
+        warAndCrimeRef={warAndCrimeRef}
+        recommendDxxRef={recommendDxxRef}
+        youRecommendRef={youRecommendRef}
+        comedyRef={comedyRef}
       />
       <BackgroundGray stateNavBarMenu={stateNavBarMenu} />
       <ContentContainer>
@@ -104,21 +114,25 @@ export default function DashboardPage({
             genreOne={genreDocumentariesOne}
             genreTwo={genreDocumentariesTwo}
             stateTrueLoanding={stateTrueLoanding}
+            documentariesRef={documentariesRef}
           />
           <CommomCaroussel
             typyMovieAndSeries="Drame and Crime series and movies"
             genreOne={genreDrame}
             genreTwo={genreCrime}
             stateTrueLoanding={stateTrueLoanding}
+            refObjetct={warAndCrimeRef}
           />
           <CommomCaroussel
             typyMovieAndSeries="Comedy series and movies"
             genreOne={genreComedy}
             stateTrueLoanding={stateTrueLoanding}
+            refObjetct={comedyRef}
           />
           <DxxRecommend
             genreOne={genreRandom}
             stateTrueLoanding={stateTrueLoanding}
+            recommendDxxRef={recommendDxxRef}
           />
           {userProfile.id ? (
             <CommomCaroussel
@@ -126,6 +140,7 @@ export default function DashboardPage({
               genreOne={genreMyRecommendOne}
               genreTwo={genreMyRecommendTwo}
               stateTrueLoanding={stateTrueLoanding}
+              refObjetct={youRecommendRef}
             />
           ) : null}
           <Footer />

@@ -5,11 +5,11 @@ interface IContainer {
 }
 
 export const ContentContainer = styled.div<IContainer>`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   max-width: 400px;
   position: fixed;
-  z-index: 1000;
+  z-index: 10000;
 
   visibility: ${({ statenavbarmenu }) =>
     statenavbarmenu === 1 ? "visible" : "hidden"};

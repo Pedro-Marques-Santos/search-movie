@@ -40,7 +40,7 @@ export function AuthenticationMyUserProvider({
 
   async function verifyToken(result: UserCredential): Promise<Response> {
     const response = await fetch(
-      "http://localhost:9999/verifyGoogleAuthentication",
+      "https://searchmoviebackend.onrender.com/verifyGoogleAuthentication",
       {
         method: "POST",
         headers: new Headers({
@@ -61,11 +61,14 @@ export function AuthenticationMyUserProvider({
       id: id,
     };
 
-    const response = await fetch("http://localhost:9999/createuser", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    });
+    const response = await fetch(
+      "https://searchmoviebackend.onrender.com/createuser",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      }
+    );
 
     const user = (await response.json()).user as IUser;
 
@@ -91,7 +94,7 @@ export function AuthenticationMyUserProvider({
     };
 
     const response = await fetch(
-      "http://localhost:9999/modifyUserAddRecommend",
+      "https://searchmoviebackend.onrender.com/modifyUserAddRecommend",
       {
         method: "POST",
         body: JSON.stringify(data),

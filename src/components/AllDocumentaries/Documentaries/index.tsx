@@ -12,21 +12,24 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import { DocumentariesSlides } from "../DocumentariesSlides";
 import { IGenreMoviesAndSeries } from "@/app/dashboard/page";
+import { RefObject } from "react";
 
 interface IDocumentaries {
   genreOne?: [];
   genreTwo?: [];
   stateTrueLoanding: () => void;
+  documentariesRef: RefObject<HTMLHeadingElement>;
 }
 
 export function Documentaries({
   genreOne,
   genreTwo,
   stateTrueLoanding,
+  documentariesRef,
 }: IDocumentaries) {
   return (
     <Container>
-      <h1>Documentaries</h1>
+      <h1 ref={documentariesRef}>Documentaries</h1>
       <Swiper
         style={{ width: "100%", height: "100%" }}
         slidesPerView={"auto"}

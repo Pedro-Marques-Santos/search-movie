@@ -29,6 +29,7 @@ export function FooterNavBarMenu() {
           </ImgIcon>
         ) : (
           <BsPersonBoundingBox
+            style={{ color: "var(--white-200)" }}
             onClick={goPageLogin}
             className="iconHeaderDashboardHeader"
           />
