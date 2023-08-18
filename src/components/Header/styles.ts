@@ -58,11 +58,13 @@ export const MenuXl = styled.div`
 
 export const Icons = styled.div`
   display: flex;
+  align-items: center;
   gap: 20px;
   color: var(--white-200);
 `;
 
 export const Icon = styled.div`
+  display: flex;
   cursor: pointer;
 
   &:nth-child(3) {
@@ -75,6 +77,22 @@ export const Icon = styled.div`
       display: none;
     }
   }
+`;
+
+export const IconLink = styled.a`
+  display: flex;
+
+  &:nth-child(3) {
+    @media (max-width: 375px) {
+      display: none;
+    }
+  }
+  &:nth-child(4) {
+    @media (max-width: 375px) {
+      display: none;
+    }
+  }
+  color: var(--white-200);
 `;
 
 export const IconProgessBar = styled.div`

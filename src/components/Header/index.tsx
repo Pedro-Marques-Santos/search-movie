@@ -7,11 +7,13 @@ import logo2 from "../../assets/login/LOGO.svg";
 import { FaSearch } from "react-icons/fa";
 import { MdOutlineFormatAlignRight } from "react-icons/md";
 import { BsPersonBoundingBox } from "react-icons/bs";
+import { ImExit } from "react-icons/im";
 
 import {
   Container,
   ContentContainer,
   Icon,
+  IconLink,
   IconProgessBar,
   Icons,
   ImgIcon,
@@ -84,6 +86,12 @@ export function Header({ modifyStateNavBarMenu }: IHeader) {
                 className="iconHeaderDashboardHeader"
               />
             </Icon>
+            <IconLink href="/">
+              <ImExit
+                onClick={goPageSearch}
+                className="iconHeaderDashboardHeader"
+              />
+            </IconLink>
           </Icons>
         </NavContainer>
       </Container>

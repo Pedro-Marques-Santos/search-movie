@@ -8,14 +8,13 @@ export const Container = styled.div`
   align-items: end;
 `;
 
-export const Exit = styled.div`
+export const Exit = styled.a`
   display: flex;
   cursor: pointer;
 `;
 
 export const User = styled.div`
   display: flex;
-  cursor: pointer;
 `;
 
 export const ImgIcon = styled.div`

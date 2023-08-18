@@ -14,6 +14,8 @@ export const Container = styled.div`
     padding: 2%;
     height: 110px;
   }
+
+  text-align: center;
 `;
 
 export const Title = styled.div`
@@ -26,6 +28,8 @@ export const Title = styled.div`
   @media (max-width: 600px) {
     font-size: 12.15px;
   }
+
+  text-align: center;
 `;
 
 export const EndSlide = styled.div`
@@ -43,4 +47,6 @@ export const EndSlide = styled.div`
     display: flex;
     align-items: center;
   }
+
+  text-align: center;
 `;

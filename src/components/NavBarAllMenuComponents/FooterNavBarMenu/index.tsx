@@ -19,7 +19,7 @@ export function FooterNavBarMenu() {
 
   return (
     <Container>
-      <Exit>
+      <Exit href="/">
         <ImExit
           size={23}
           style={{ color: "var(--white-200)" }}

@@ -47,6 +47,9 @@ export default function Home() {
         genresLike.shift();
         setGenresLike([...genresLike, genre]);
       }
+    } else {
+      const newGenresLike = genresLike.filter((e) => e !== genre);
+      setGenresLike(newGenresLike);
     }
   }
 
