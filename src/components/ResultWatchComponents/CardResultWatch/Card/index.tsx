@@ -17,6 +17,7 @@ interface ICardResultWatch {
   overview: string;
   genres: IGenres[];
   type: string;
+  streamings: string[] | null;
 }
 
 export function CardResultWatch({
@@ -25,12 +26,13 @@ export function CardResultWatch({
   overview,
   genres,
   type,
+  streamings,
 }: ICardResultWatch) {
   return (
     <Container>
       <TagIntroductionCard title={title} overview={overview} />
       <ImgCard img={backdropURLs.original} />
-      <FooterCard genres={genres} type={type} />
+      <FooterCard genres={genres} type={type} streamings={streamings} />
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, Genre, Tag, Youtube } from "./styles";
+import { Container, Genre, Streaming, Tag, Youtube } from "./styles";
 
 interface IGenres {
   name: string;
@@ -9,9 +9,14 @@ interface IGenres {
 interface IFooterCard {
   genres: IGenres[];
   type: string;
+  streamings: string[] | null;
 }
 
-export function FooterCard({ genres, type }: IFooterCard) {
+export function FooterCard({ genres, type, streamings }: IFooterCard) {
+  function capitalizeFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <Container>
       <Tag>
@@ -21,7 +26,14 @@ export function FooterCard({ genres, type }: IFooterCard) {
         })}
       </Tag>
       <Tag>Type: {type}</Tag>
-      <Youtube>Youtube</Youtube>
+      <Streaming>
+        {streamings &&
+          streamings.map((straming, index) => {
+            return (
+              <Youtube key={index}>{capitalizeFirstLetter(straming)}</Youtube>
+            );
+          })}
+      </Streaming>
     </Container>
   );
 }

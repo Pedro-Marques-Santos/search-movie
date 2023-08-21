@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   color: var(--white-200);
-  padding: 20px;
   @media (max-height: 650px) {
     padding: 15px;
   }
@@ -45,4 +44,9 @@ export const Genre = styled.div`
   @media (max-height: 650px) {
     font-size: 9.5px;
   }
+`;
+
+export const Streaming = styled.div`
+  display: flex;
+  gap: 20px;
 `;

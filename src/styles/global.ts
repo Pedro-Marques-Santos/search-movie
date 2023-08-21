@@ -91,6 +91,12 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .youtube-video {
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 20px;
+  }
+
   ::-webkit-scrollbar {
     width: 6.5px; /* width of the entire scrollbar */
     -webkit-overflow-scrolling: auto;

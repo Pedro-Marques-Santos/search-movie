@@ -29,6 +29,10 @@ export interface IGenreMoviesAndSeries {
   overview: string;
   genres: IGenres[];
   type: string;
+  youtubeTrailerVideoId: string | null | undefined;
+  streamingInfo: {
+    us: string[];
+  };
 }
 
 export default async function Home() {
