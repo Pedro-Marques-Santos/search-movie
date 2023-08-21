@@ -51,6 +51,11 @@ export const Container = styled.div`
   button:hover {
     background: var(--red-700);
   }
+
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 `;
 
 export const Icon = styled.div`

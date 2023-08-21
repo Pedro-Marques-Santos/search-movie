@@ -15,6 +15,8 @@ export default function Home() {
     setStateNavBarMenu(!stateNavBarMenu);
   }
 
+  console.log(myResultMovieAndSerie);
+
   return (
     <>
       <Header modifyStateNavBarMenu={openAndCloseNavBarMenu} />

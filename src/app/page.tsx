@@ -15,6 +15,8 @@ import { Container, ContentContainer, Icon, Img } from "./login/styles";
 import { GifCenter } from "@/components/Gif/GifCenter";
 
 export default function Home() {
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   const router = useRouter();
 
   const { verifyToken, searchOrCreateUser, userProfile } = useContext(
@@ -24,6 +26,7 @@ export default function Home() {
   const [stateLoadingLogin, setStateLoadingLogin] = useState(false);
 
   function handleGoogleSignIn() {
+    setIsButtonDisabled(true);
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
@@ -40,6 +43,7 @@ export default function Home() {
       .catch((e) => {
         console.log(e);
         setStateLoadingLogin(false);
+        setIsButtonDisabled(false);
       });
   }
 
@@ -73,7 +77,7 @@ export default function Home() {
           />
         </Img>
         <Image src={login} width={190} height={96} alt={"login"} priority />
-        <button onClick={handleGoogleSignIn}>
+        <button onClick={handleGoogleSignIn} disabled={isButtonDisabled}>
           <Icon>
             <AiFillGoogleCircle />
           </Icon>
