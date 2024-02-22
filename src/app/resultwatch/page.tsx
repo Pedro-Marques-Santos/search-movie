@@ -16,9 +16,11 @@ export default function Home() {
     setStateNavBarMenu(!stateNavBarMenu);
   }
 
-  const streamings = myResultMovieAndSerie
+  const streamings = myResultMovieAndSerie?.streamingInfo.us
     ? Object.keys(myResultMovieAndSerie.streamingInfo.us)
     : null;
+
+  console.log(myResultMovieAndSerie?.streamingInfo);
 
   return (
     <>

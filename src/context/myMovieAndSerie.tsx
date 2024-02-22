@@ -27,6 +27,8 @@ export function MyMovieAndSerieProvider({
     setMyResultMovieAndSerie(drame);
   }
 
+  console.log(myResultMovieAndSerie);
+
   return (
     <MyMovieAndSerieContext.Provider
       value={{
